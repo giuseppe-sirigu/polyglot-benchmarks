@@ -1,0 +1,120 @@
+{
+  "tool": "hermes",
+  "toolVersion": "Hermes Agent v0.19.0 (2026.7.20)",
+  "model": "qwen3-coder:latest",
+  "trials": 2,
+  "date": "2026-09-10",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 0,
+      "trials": 2,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 6,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 0,
+      "trials": 2,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 8,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 0,
+      "trials": 2,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 0,
+      "trials": 2,
+      "zeroToolCallRuns": 2,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 0,
+      "trials": 2,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 6,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 0,
+      "trials": 2,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        }
+      ]
+    }
+  ],
+  "totalPass": 0,
+  "totalTrials": 12,
+  "note": "DISCARD: harness scoring bug (-v output not parsed for final-text checks) + methodology issues (26-tool default times out; restricted toolset yields generic non-responses on some tasks). qwen3-coder DID make real tool calls (6,8,2...). Needs a proper Hermes methodology before these numbers mean anything."
+}

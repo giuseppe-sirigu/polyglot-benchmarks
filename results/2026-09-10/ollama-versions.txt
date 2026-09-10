@@ -1,0 +1,9 @@
+NAME SIZE MODIFIED
+gpt-oss:20b 13 GB
+qwen2.5-coder:7b 4.7 GB
+llama3.2:3b 2.0 GB
+qwen2.5:1.5b 986 MB
+qwen2.5-coder-24k:latest 9.0 GB
+qwen2.5-coder:14b 9.0 GB
+qwen3-coder:latest 18 GB
+qwen3.6:latest 23 GB

@@ -1,0 +1,149 @@
+{
+  "tool": "pi",
+  "toolVersion": "0.85.1",
+  "model": "qwen3-coder:latest",
+  "trials": 3,
+  "date": "2026-09-10",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 8,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 1,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        }
+      ]
+    }
+  ],
+  "totalPass": 16,
+  "totalTrials": 18
+}

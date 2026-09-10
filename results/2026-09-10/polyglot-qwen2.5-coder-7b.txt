@@ -1,0 +1,66 @@
+=== Polyglot scenario:live run 1 ===
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✗       
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+── delete-dead-code ──  Remove an unused exported function.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓       
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+taskDone 8/12 · 0 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+──── paste into the release PR (also written to scenario-matrix.md) ────
+taskDone 8/12 · 0 failure transcript(s).
+=== Polyglot scenario:live run 2 ===
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✗       
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓                     ✗                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+── delete-dead-code ──  Remove an unused exported function.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓       
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+taskDone 7/12 · 1 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+──── paste into the release PR (also written to scenario-matrix.md) ────
+taskDone 7/12 · 1 failure transcript(s).
+=== Polyglot scenario:live run 3 ===
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓                     ✗                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+── delete-dead-code ──  Remove an unused exported function.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓       
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✗       
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✗       
+taskDone 5/12 · 1 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+──── paste into the release PR (also written to scenario-matrix.md) ────
+taskDone 5/12 · 1 failure transcript(s).

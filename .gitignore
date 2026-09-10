@@ -1,0 +1,16 @@
+harness/node_modules/
+harness/.venv/
+# pi: keep only the model/auth config, not session state
+harness/pi-home/**
+!harness/pi-home/
+!harness/pi-home/.pi/
+!harness/pi-home/.pi/agent/
+!harness/pi-home/.pi/agent/models.json
+!harness/pi-home/.pi/agent/auth.json
+# hermes: keep only config.yaml
+harness/hermes-home/**
+!harness/hermes-home/
+!harness/hermes-home/.hermes/
+!harness/hermes-home/.hermes/config.yaml
+*.log
+.DS_Store

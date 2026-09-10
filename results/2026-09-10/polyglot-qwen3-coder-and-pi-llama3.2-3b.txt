@@ -1,0 +1,66 @@
+=== POLYGLOT qwen3-coder run 1 ===
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+── delete-dead-code ──  Remove an unused exported function.
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓       
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+taskDone 6/6 · 0 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+──── paste into the release PR (also written to scenario-matrix.md) ────
+taskDone 6/6 · 0 failure transcript(s).
+=== POLYGLOT qwen3-coder run 2 ===
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+── delete-dead-code ──  Remove an unused exported function.
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓       
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+taskDone 6/6 · 0 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+──── paste into the release PR (also written to scenario-matrix.md) ────
+taskDone 6/6 · 0 failure transcript(s).
+=== PI llama3.2:3b ===
+# pi · llama3.2:3b · 3 trials/scenario
+
+  add-count-command trial 1... fail  (3 tool calls)
+  add-count-command trial 2... fail  (2 tool calls)
+  add-count-command trial 3... fail  (3 tool calls)
+  fix-bug trial 1... fail  (1 tool calls)
+  fix-bug trial 2... fail  (1 tool calls)
+  fix-bug trial 3... fail  (1 tool calls)
+  read-and-report trial 1... fail  (0 tool calls)
+  read-and-report trial 2... PASS  (1 tool calls)
+  read-and-report trial 3... fail  (1 tool calls)
+  delete-dead-code trial 1... fail  (3 tool calls)
+  delete-dead-code trial 2... fail  (2 tool calls)
+  delete-dead-code trial 3... fail  (0 tool calls)
+  rename-across-files trial 1... fail  (2 tool calls)
+  rename-across-files trial 2... fail  (5 tool calls)
+  rename-across-files trial 3... fail  (8 tool calls)
+  locate-and-fix trial 1... fail  (2 tool calls)
+  locate-and-fix trial 2... fail  (0 tool calls)
+  locate-and-fix trial 3... fail  (2 tool calls)
+
+## Summary
+
+| Scenario | pi pass | 0-tool-call runs |
+|---|---|---|
+| add-count-command | 0/3 | 0/3 |
+| fix-bug | 0/3 | 0/3 |
+| read-and-report | 1/3 | 1/3 |
+| delete-dead-code | 0/3 | 1/3 |
+| rename-across-files | 0/3 | 0/3 |
+| locate-and-fix | 0/3 | 1/3 |
+
+**pi total: 1/18**

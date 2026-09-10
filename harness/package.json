@@ -1,0 +1,9 @@
+{
+  "name": "polyglot-benchmarks-harness",
+  "private": true,
+  "type": "module",
+  "description": "Runners for the open-weight tool-call reliability benchmark",
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "^0.85.1"
+  }
+}
