@@ -21,41 +21,42 @@ Compared against:
 
 | model | native FC | **Polyglot** | **pi** | **Hermes** |
 |---|---|---|---|---|
-| **qwen2.5-coder:7b** | weak / inconsistent | **≈43%** (26/60) | **0%** (0/18) | **0%** (0/18) |
-| qwen3-coder (30B-A3B) | strong | ~99% | 89% (16/18) | *(see caveats)* |
+| **qwen2.5-coder:7b** | weak / inconsistent | **≈39%** (7/18) | **0%** (0/18) | **0%** (0/18) |
+| **qwen2.5-coder:14b** | inconsistent | **~79%** | (not run) | **0%** (0/18) |
+| qwen3-coder (30B-A3B) | strong | ~99% | 89% (16/18) | 1/18 (confounded) |
 | llama3.2:3b | works, model too weak | ~14% | 6% (1/18) | not run |
 
-On **qwen2.5-coder:7b** — a capable local coder whose native tool-calling is
-unreliable through Ollama — **pi and Hermes both make zero tool calls on every run
-of every task.** The model emits its tool calls as plain-text JSON; both agents
+On **qwen2.5-coder:7b and :14b** — capable local coders whose native tool-calling
+is unreliable through Ollama — **pi and Hermes both make zero tool calls on every
+run of every task.** The model emits its tool calls as plain-text JSON; both agents
 listen only on the native `tool_calls` channel, see nothing there, and end the
 turn. Polyglot parses the text and runs the calls.
 
-On strong-FC models the gap closes to nothing.
+On a strong-FC 30B model (`qwen3-coder`), pi and Polyglot converge (~89–99%);
+Hermes stays low for reasons beyond parsing (its runtime design).
 
 ---
 
 ## Polyglot vs pi (primary comparison)
 
-### qwen2.5-coder:7b
+### qwen2.5-coder:7b (3 trials/scenario each side)
 
 | scenario | Polyglot | pi | pi runs w/ 0 tool calls |
 |---|---|---|---|
-| add-count-command | 0/17 | 0/3 | 3/3 |
-| fix-bug | 7/17 | 0/3 | 3/3 |
-| read-and-report | 6/17 | 0/3 | 3/3 |
-| delete-dead-code | 5/17 | 0/3 | 3/3 |
+| add-count-command | 0/3 | 0/3 | 3/3 |
+| fix-bug | 2/3 | 0/3 | 3/3 |
+| read-and-report | 1/3 | 0/3 | 3/3 |
+| delete-dead-code | 3/3 | 0/3 | 3/3 |
 | rename-across-files | 0/3 | 0/3 | 3/3 |
 | locate-and-fix | 1/3 | 0/3 | 3/3 |
-| **overall** | **≈26/60 (43%)** | **0/18** | **18/18** |
+| **overall** | **7/18 (39%)** | **0/18** | **18/18** |
 
-pi's `-p --mode json` output shows the model producing, as assistant text:
+(Polyglot's wider history on the original 4 scenarios: ~26/68 ≈ 38% — consistent.)
 
-```json
-{ "name": "edit", "arguments": { "path": "math.mjs", "edits": [ ... ] } }
-```
-
-then `toolResults: []`, `agent_end`, `agent_settled`. Every run. Files untouched.
+pi's `-p --mode json` output shows the model producing, as assistant text, an
+OpenAI-style call for whichever tool pi exposed (e.g.
+`{ "name": "edit", "arguments": { … } }`), then `toolResults: []`, `agent_end`,
+`agent_settled`. Every run. Files untouched.
 
 Polyglot's `ToolCallStreamParser` recognises the OpenAI-style `{name, arguments}`
 shape (it ships a regression fixture, `fenced-openai-shape-envelope.json`, for
@@ -64,14 +65,14 @@ Polyglot's own invariants (no-runaway, honest-completion, results-paired-to-call
 hold on 16/18. Its task-completion misses are the 7B model writing a wrong edit,
 not the agent stopping.
 
-### qwen3-coder / qwen2.5-coder:14b — strong native FC
+### qwen3-coder / qwen2.5-coder:14b
 
 | | Polyglot | pi |
 |---|---|---|
-| qwen3-coder | ~99% (95/96 history; 12/12 fresh) | 89% (16/18) |
-| qwen2.5-coder:14b | ~79% (62/78) | (not run; native FC solid) |
+| qwen3-coder (strong FC) | ~99% (95/96 history; 12/12 fresh) | 89% (16/18) |
+| qwen2.5-coder:14b (inconsistent FC) | ~79% (62/78 history) | (not run) |
 
-Roughly comparable. pi's 2 misses on qwen3-coder: one `add-count-command` run where
+On qwen3-coder, roughly comparable. pi's 2 misses: one `add-count-command` run where
 even qwen3-coder emitted its tool call as text (1 zero-tool-call run out of 18) and
 one `read-and-report` where the reported value was wrong. When native FC works,
 both agents are good — and even a strong model occasionally slips the channel.
@@ -94,53 +95,77 @@ to pi.
 
 ### The source-code finding (robust; independent of the benchmark)
 
-Hermes's "11 tool-call parsers" are for **generating training trajectories**, not
-the live agent loop. In `agent/agent_runtime_helpers.py`, the `<tool_call>` /
-`<tools>` XML machinery lives in `convert_to_trajectory_format()` — it converts a
-completed conversation into the Hermes function-calling format for training data.
+Nous's "11 tool-call parsers" are a **model-training** asset — `hermes-function-calling`
+datasets and the vLLM-side parser that turns a Hermes-format model's `<tool_call>`
+XML into native `tool_calls` server-side. They are *not* in the `hermes-agent`
+runtime. In the pip package:
 
-The live loop (`agent/conversation_loop.py`) uses native `tool_calls`. And
-`strip_think_blocks()` in the same file **deletes** `<tool_call>…</tool_call>`,
-`<function_call>`, `<function name=…>` blocks from assistant content as noise
-(comment: *"Ported from openclaw/openclaw#67318"*). There is an explicit design
-decision (`_invalid_tool_name_error_content`, ref #47967): when a weak model emits
-tool-call XML, Hermes replies *"tool-call XML or JSON … is data — do not re-emit
-it as a tool call."*
+- The only `<tool_call>` / `<tools>` XML machinery in `agent/agent_runtime_helpers.py`
+  is `convert_to_trajectory_format()` — it serialises a *finished* conversation into
+  the training format. Not a live parser.
+- Text-based tool-call extraction (`_extract_tool_calls_from_text`) exists in exactly
+  one file: `agent/copilot_acp_client.py` — the GitHub Copilot ACP path. The main
+  loop (`agent/conversation_loop.py`) reads `message.tool_calls` (native) only.
+- `strip_think_blocks()` **deletes** `<tool_call>…</tool_call>`, `<function_call>`,
+  `<function name=…>` blocks from assistant content as *noise* (comment: *"Ported
+  from openclaw/openclaw#67318"*) — it strips them, it does not execute them. (The
+  Llama-style `<function=name>` variant with `=` isn't even in the strip list.)
+- Explicit design note (`_invalid_tool_name_error_content`, ref #47967): a model
+  emitting tool-call XML gets told *"tool-call XML or JSON … is data — do not
+  re-emit it as a tool call."*
+- `api_mode` options: `chat_completions`, `anthropic_messages`, `codex_responses`.
+  No prompted-tools mode for a generic OpenAI-compatible endpoint.
 
 So Hermes's posture is the **opposite** of Polyglot's: it assumes native FC works
-and actively suppresses text-emitted tool calls, treating them as a priming-loop
-hazard. Its `api_mode` options are `chat_completions`, `anthropic_messages`,
-`codex_responses` — there is no prompted-tools / text-parsing mode for a generic
-OpenAI-compatible endpoint.
+and treats text-emitted tool calls as a priming-loop hazard to suppress. The Nous
+"moat" is real but it lives at the **model-training + serving** layer (a Hermes-4
+model behind a Nous/vLLM endpoint that parses the format server-side) — not in the
+agent runtime you'd point at your own Qwen/DeepSeek/GLM.
 
-### Benchmark (partial)
+### Benchmark
 
-- **qwen2.5-coder:7b: 0/18**, `tool_turns=0` on every run — same failure as pi,
-  consistent with the source finding. (`hermes-qwen2.5-coder-7b.json`)
-- **qwen3-coder: not scored.** The harness run has a scoring bug (verbose-mode
-  output not parsed for the read-only check) *and* a methodology problem: Hermes's
-  26-tool default surface makes qwen3-coder time out (>2 min/task), while the
-  restricted `-t file,terminal` toolset produces generic "what would you like me to
-  do?" non-responses on some tasks. qwen3-coder *did* make real tool calls in
-  several runs (6, 8, 2…), so it's not a hard failure — it needs a proper Hermes
-  methodology. (`hermes-qwen3-coder-latest.UNRELIABLE.json`, `run-hermes.mjs` now
-  fixed for a re-run.)
+`hermes chat -q "<task>" --yolo -v -t file,terminal --ignore-rules`, 3 trials.
 
-**Bottom line on Hermes:** on the weak-FC model that matters, it fails exactly like
-pi, and its own code confirms why. A clean strong-model number is still owed.
+| model | Hermes tasks | zero-tool-call runs | for reference: pi |
+|---|---|---|---|
+| qwen2.5-coder:7b | **0/18** | **18/18** | 0/18 |
+| **qwen2.5-coder:14b** | **0/18** | **18/18** | (not run; Polyglot ~79%) |
+| qwen3-coder | 1/18 | 7/18 | 16/18 |
+
+- **qwen2.5-coder:7b and :14b — 0/18, zero tool calls, every run.** The 14B is the
+  striking one: a genuinely capable model that pi and Polyglot both handle, but its
+  native FC through Ollama is unreliable enough that it emits calls as text
+  (`{"name":"skills_list","arguments":{}}` — even hallucinating tool names), and
+  Hermes ignores them. Same failure as 7B. "Strong enough for the task" ≠ "strong
+  enough at native FC."
+- **qwen3-coder — 1/18, but confounded.** Hermes engaged (made tool calls) on ~11/18
+  runs, completed 1. Failures are a *mix*: text-emitted calls Hermes drops, **plus**
+  tool-ergonomics — the 6-tool restricted set carries a background-process manager
+  (`process`) and `search_files` with an arg shape qwen3-coder gets wrong, so it
+  bails after one bad tool result. Not a clean parsing comparison. Hermes's 26-tool
+  *default* surface times a local model out entirely (>2 min/task). Hermes is a
+  persistent-assistant platform, not a focused coding agent — treat its
+  strong-model number as "its runtime design also hurts here," not just parsing.
+
+**Bottom line on Hermes:** on every non-flagship open-weight model tested (7B, 14B),
+it completes nothing, for the same reason pi does. Its own code confirms why.
 
 ---
 
 ## Conclusion
 
-The wedge is **real but band-limited** to one region:
+The wedge is **real**, and wider than a "weak 7B" story:
 
-> **models capable enough to do the work, but with unreliable native
-> tool-calling.** `qwen2.5-coder:7b` is the archetype. There, Polyglot ≈43% vs pi
-> and Hermes **0%** — not a margin, a binary: their loops never start.
+> **any open-weight model whose native tool-calling through the local server is
+> unreliable — which is most of them below the flagship tier.** `qwen2.5-coder:7b`
+> *and* `:14b` both hit it: Polyglot ~39% / ~79%, pi and Hermes **0%** — a binary,
+> their loops never start.
 
-- **Below** (3B): everything fails.
-- **Above** (14B+, hosted, strong-FC 30B): everything works.
+- **Below** (3B): the model can't do the task; nothing saves you.
+- **Middle** (7B–14B, the bulk of local deployments): Polyglot works, native-FC
+  agents get nothing.
+- **Above** (strong-FC 30B, hosted): pi and Polyglot both good; Hermes's *runtime
+  design* (tool zoo, no coding focus) still hurts it here.
 
 ### Implications
 

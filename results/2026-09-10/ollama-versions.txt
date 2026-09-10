@@ -1,9 +1,9 @@
-NAME SIZE MODIFIED
-gpt-oss:20b 13 GB
-qwen2.5-coder:7b 4.7 GB
-llama3.2:3b 2.0 GB
-qwen2.5:1.5b 986 MB
-qwen2.5-coder-24k:latest 9.0 GB
-qwen2.5-coder:14b 9.0 GB
-qwen3-coder:latest 18 GB
-qwen3.6:latest 23 GB
+NAME                        ID              SIZE      MODIFIED     
+gpt-oss:20b                 17052f91a42e    13 GB     14 hours ago    
+qwen2.5-coder:7b            dae161e27b0e    4.7 GB    8 days ago      
+llama3.2:3b                 a80c4f17acd5    2.0 GB    8 days ago      
+qwen2.5:1.5b                65ec06548149    986 MB    8 days ago      
+qwen2.5-coder-24k:latest    931c7a72900e    9.0 GB    2 weeks ago     
+qwen2.5-coder:14b           9ec8897f747e    9.0 GB    2 weeks ago     
+qwen3-coder:latest          06c1097efce0    18 GB     2 weeks ago     
+qwen3.6:latest              07d35212591f    23 GB     2 months ago    
