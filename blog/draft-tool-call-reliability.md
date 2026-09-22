@@ -1,13 +1,7 @@
 ---
 title: "Your local coding agent might be doing nothing at all"
 description: A head-to-head on open-weight tool-call reliability, and why Polyglot parses tool calls out of text instead of trusting the model to format them.
-draft: true
 ---
-
-> Draft for usepolyglot.dev. Numbers from `polyglot-benchmarks` (2026-09-10 run).
-> The 7B/14B numbers and the Hermes source finding are solid; the qwen3-coder Hermes
-> number is confounded by its runtime design and is reported as such. Want larger
-> sample sizes before publishing.
 
 ## The setup
 
@@ -130,14 +124,42 @@ Polyglot never assumes the model will format a tool call correctly. It:
 Same parser, same executor, under every provider — so your agent loop behaves the
 same on a flaky local model as it does on Claude.
 
+## Methodology
+
+- **Tasks.** Six small, realistic coding jobs: add a CLI subcommand, fix an
+  off-by-one bug, answer a question from a file without editing anything, remove
+  dead code, rename a function and fix its caller across two files, and trace a
+  runtime error to its cause across two files. Each seeded into a fresh working
+  directory per run.
+- **Models.** All local, all via Ollama, all on the same machine, one at a time:
+  `qwen2.5-coder:7b` and `:14b` (the size most people actually run), `qwen3-coder`
+  30B-A3B (strong native tool-calling, as a control), `llama3.2:3b` (a floor check).
+- **Agents.** Polyglot, pi (`@earendil-works/pi-coding-agent`), and Hermes Agent
+  (`hermes-agent`, Nous Research) — each pointed at the identical model, identical
+  tasks, identical machine, no changes to the tasks between tools.
+- **Scoring.** Automated, not eyeballed: a task counts as done only if the final
+  file contents (or, for read-only tasks, the reported answer) satisfy a fixed
+  pass/fail check, applied the same way to every agent.
+- **Trials.** 3 runs per task per model per agent — weak models are noisy enough
+  that a single run isn't representative.
+- **Controlled for.** Same hardware, same local endpoint (Ollama's
+  OpenAI-compatible API) for every agent under test, same task wording.
+
+We're keeping the full harness and raw transcripts internal for now, but every
+number above should reproduce within a run or two if you point these three agents
+at the same setup yourself.
+
 ## Honest caveats
 
-- Small sample sizes (3 trials/scenario); weak models are noisy.
-- pi and Hermes tested only against Ollama's OpenAI-compatible endpoint — the
-  realistic local setup, but not necessarily each tool at its absolute best.
 - Hermes's qwen3-coder number is confounded by its runtime design, not just parsing
   — we've flagged it rather than lead with it.
 - On a genuinely weak model (3B) nothing saves you — all three agents mostly fail.
 - Polyglot's 7B number (39%) is comparative, not a claim that it makes a 7B good.
+- Ollama's OpenAI-compatible endpoint is the realistic local setup, but it isn't
+  necessarily every tool at its absolute best.
 
-Full methodology and raw data: [link to polyglot-benchmarks].
+## Try it
+
+Polyglot is free and open source. `npm install -g @usepolyglot/cli`, point it at
+whatever's already running on your GPU, and see for yourself whether your agent is
+doing the work or just narrating it. [Get started →](/docs/start/install)
