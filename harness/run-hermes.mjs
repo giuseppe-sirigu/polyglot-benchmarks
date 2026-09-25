@@ -20,6 +20,9 @@ const HERMES = join(HERE, ".venv/bin/hermes");
 const HERMES_HOME = join(HERE, "hermes-home");
 const model = process.argv[2] || "qwen2.5-coder:7b";
 const trials = Number(process.argv[3] || 3);
+const RUN_SCENARIOS = process.env.SCENARIO_FILTER
+  ? SCENARIOS.filter((s) => s.name === process.env.SCENARIO_FILTER)
+  : SCENARIOS;
 const TIMEOUT_MS = 600_000;
 const date = new Date().toISOString().slice(0, 10);
 const outDir = join(HERE, "..", "results", date);
@@ -47,15 +50,17 @@ function runOnce(scenario) {
         // -t file,terminal: restrict to the read/write/patch/search + shell toolset,
         // roughly matching pi's and Polyglot's toolset, so the comparison is about
         // the loop rather than Hermes's 26-tool default surface.
-        ["chat", "-q", scenario.prompt, "--yolo", "-v", "-m", model, "-t", "file,terminal", "--ignore-rules"],
+        ["chat", "-q", scenario.prompt, "--yolo", "-m", model, "-t", "file,terminal", "--ignore-rules"],
         { cwd: dir, env: { ...process.env, HOME: HERMES_HOME }, timeout: TIMEOUT_MS, maxBuffer: 64 * 1024 * 1024, encoding: "utf8" },
       );
     } catch (err) {
       out = `${(err.stdout || "").toString()}\n${(err.stderr || "").toString()}`;
       if (err.signal === "SIGTERM" || err.code === "ETIMEDOUT") timedOut = true;
     }
-    // "Messages:  N (M user, K tool call(s))" on the session-summary line; also
-    // "tool_turns=K" in the verbose turn-end log lines.
+    // "Messages:  N (M user, K tool call(s))" on the session-summary line - present
+    // without -v, which we deliberately don't pass (its DEBUG/WARNING logging drowns
+    // the real output). "tool_turns=K" only shows up if -v is ever reintroduced; kept
+    // as a no-op fallback, not the primary signal.
     let toolCalls = 0;
     const m1 = out.match(/Messages:\s*\d+\s*\([^)]*?(\d+)\s+tool calls?\)/);
     if (m1) toolCalls = Number(m1[1]);
@@ -86,7 +91,7 @@ function runOnce(scenario) {
 }
 
 const result = { tool: "hermes", toolVersion: hermesVersion(), model, trials, date, scenarios: [] };
-for (const scenario of SCENARIOS) {
+for (const scenario of RUN_SCENARIOS) {
   const runs = [];
   for (let t = 0; t < trials; t++) {
     process.stdout.write(`  hermes · ${model} · ${scenario.name} trial ${t + 1}... `);

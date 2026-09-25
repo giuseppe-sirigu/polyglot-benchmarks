@@ -20,6 +20,9 @@ import { verifyScenario } from "./verify.mjs";
 const GOOSE = "goose";
 const model = process.argv[2] || "qwen2.5-coder:7b";
 const trials = Number(process.argv[3] || 3);
+const RUN_SCENARIOS = process.env.SCENARIO_FILTER
+  ? SCENARIOS.filter((s) => s.name === process.env.SCENARIO_FILTER)
+  : SCENARIOS;
 const TOOLSHIM = process.env.GOOSE_HARNESS_TOOLSHIM === "1";
 const TOOLSHIM_MODEL = process.env.GOOSE_HARNESS_TOOLSHIM_MODEL || "llama3.2:3b";
 const TIMEOUT_MS = 600_000;
@@ -147,7 +150,7 @@ const result = {
     "no-toolshim failure mode) - not an authoritative count either way. See run-goose.mjs.",
   scenarios: [],
 };
-for (const scenario of SCENARIOS) {
+for (const scenario of RUN_SCENARIOS) {
   const runs = [];
   for (let t = 0; t < trials; t++) {
     process.stdout.write(`  goose · ${model} · ${scenario.name} trial ${t + 1}... `);

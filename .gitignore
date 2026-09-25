@@ -12,5 +12,8 @@ harness/hermes-home/**
 !harness/hermes-home/
 !harness/hermes-home/.hermes/
 !harness/hermes-home/.hermes/config.yaml
+# opencode: no static config needed, run-opencode.mjs writes a fresh
+# project-local opencode.jsonc per run - just an isolated scratch HOME
+harness/opencode-home/
 *.log
 .DS_Store

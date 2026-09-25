@@ -17,6 +17,9 @@ const PI = join(HERE, "node_modules/.bin/pi");
 const PI_HOME = join(HERE, "pi-home");
 const model = process.argv[2] || "qwen2.5-coder:7b";
 const trials = Number(process.argv[3] || 3);
+const RUN_SCENARIOS = process.env.SCENARIO_FILTER
+  ? SCENARIOS.filter((s) => s.name === process.env.SCENARIO_FILTER)
+  : SCENARIOS;
 const TIMEOUT_MS = 600_000;
 const date = new Date().toISOString().slice(0, 10);
 const outDir = join(HERE, "..", "results", date);
@@ -82,7 +85,7 @@ function runOnce(scenario) {
 }
 
 const result = { tool: "pi", toolVersion: piVersion(), model, trials, date, scenarios: [] };
-for (const scenario of SCENARIOS) {
+for (const scenario of RUN_SCENARIOS) {
   const runs = [];
   for (let t = 0; t < trials; t++) {
     process.stdout.write(`  pi · ${model} · ${scenario.name} trial ${t + 1}... `);

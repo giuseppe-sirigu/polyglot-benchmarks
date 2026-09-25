@@ -1,0 +1,191 @@
+=== Polyglot scenario:live · qwen2.5-coder:32b · run 1 ===
+
+> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> tsx scripts/scenario-matrix.ts
+
+
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✓                      ✓                      ✓                      ✓                      ✓       
+
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  model                                  noRunaway             honestCompletion      resultsPairedToCalls  noWrites              reportsRealValue      taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓                     ✗                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+
+── delete-dead-code ──  Remove an unused exported function.
+  model                                  noRunaway             honestCompletion      resultsPairedToCalls  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                     ✓                     ✓                     abort   
+
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+taskDone 9/18 · 5 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+
+──── paste into the release PR (also written to scenario-matrix.md) ────
+
+## Scenario matrix (`pnpm scenario:live` · 2026-09-25)
+
+qwen2.5-coder:7b · qwen2.5-coder:14b · qwen2.5-coder:32b
+
+| Scenario | Invariants | taskDone (qwen2.5-coder:7b · qwen2.5-coder:14b · qwen2.5-coder:32b) |
+|---|---|---|
+| add-count-command | all ✓ | ✗ · ✓ · ✓ |
+| fix-bug | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✓ |
+| read-and-report | `reportsRealValue` ✗ qwen2.5-coder:7b | ✗ · ✓ · ✓ |
+| delete-dead-code | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✓ |
+| rename-across-files | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✗ |
+| locate-and-fix | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✗ · ✗ |
+
+taskDone 9/18 · 5 failure transcript(s).
+
+**No invariant regressed vs the previous run (2026-09-24).**
+
+=== Polyglot scenario:live · qwen2.5-coder:32b · run 2 ===
+
+> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> tsx scripts/scenario-matrix.ts
+
+
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✓                      ✓                      ✓                      ✓                      ✓       
+
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  model                                  noRunaway             honestCompletion      resultsPairedToCalls  noWrites              reportsRealValue      taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓                     ✗                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+
+── delete-dead-code ──  Remove an unused exported function.
+  model                                  noRunaway             honestCompletion      resultsPairedToCalls  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                     ✓                     ✓                     abort   
+
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+taskDone 9/18 · 5 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+
+──── paste into the release PR (also written to scenario-matrix.md) ────
+
+## Scenario matrix (`pnpm scenario:live` · 2026-09-25)
+
+qwen2.5-coder:7b · qwen2.5-coder:14b · qwen2.5-coder:32b
+
+| Scenario | Invariants | taskDone (qwen2.5-coder:7b · qwen2.5-coder:14b · qwen2.5-coder:32b) |
+|---|---|---|
+| add-count-command | all ✓ | ✗ · ✓ · ✓ |
+| fix-bug | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✓ |
+| read-and-report | `reportsRealValue` ✗ qwen2.5-coder:7b | ✗ · ✓ · ✓ |
+| delete-dead-code | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✗ |
+| rename-across-files | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✗ |
+| locate-and-fix | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✗ |
+
+taskDone 9/18 · 5 failure transcript(s).
+
+**No invariant regressed vs the previous run (2026-09-25).**
+
+=== Polyglot scenario:live · qwen2.5-coder:32b · run 3 ===
+
+> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> tsx scripts/scenario-matrix.ts
+
+
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 32B (scale check)       ✓                      ✓                      ✓                      ✓                      ✓       
+
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✓                      ✓                      ✓                      ✓                      ✓       
+
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  model                                  noRunaway             honestCompletion      resultsPairedToCalls  noWrites              reportsRealValue      taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓                     ✗                     ✗       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+
+── delete-dead-code ──  Remove an unused exported function.
+  model                                  noRunaway             honestCompletion      resultsPairedToCalls  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 14B                     ✓                     ✓                     ✓                     ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                     ✓                     ✓                     abort   
+
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  model                                  noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 2.5 Coder 7B (common first pick)  ✓                      ✓                      ✓                      ✓                      ✗       
+  Qwen 2.5 Coder 14B                     ✓                      ✓                      ✓                      ✓                      ✓       
+  Qwen 2.5 Coder 32B (scale check)       ✗                      ✓                      ✓                      ✓                      abort   
+
+taskDone 11/18 · 4 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+
+──── paste into the release PR (also written to scenario-matrix.md) ────
+
+## Scenario matrix (`pnpm scenario:live` · 2026-09-25)
+
+qwen2.5-coder:7b · qwen2.5-coder:14b · qwen2.5-coder:32b
+
+| Scenario | Invariants | taskDone (qwen2.5-coder:7b · qwen2.5-coder:14b · qwen2.5-coder:32b) |
+|---|---|---|
+| add-count-command | all ✓ | ✗ · ✗ · ✓ |
+| fix-bug | all ✓ | ✗ · ✓ · ✓ |
+| read-and-report | `reportsRealValue` ✗ qwen2.5-coder:7b | ✗ · ✓ · ✓ |
+| delete-dead-code | `noRunaway` ✗ qwen2.5-coder:32b | ✓ · ✓ · ✓ |
+| rename-across-files | `noRunaway` ✗ qwen2.5-coder:32b | ✓ · ✓ · ✗ |
+| locate-and-fix | `noRunaway` ✗ qwen2.5-coder:32b | ✗ · ✓ · ✗ |
+
+taskDone 11/18 · 4 failure transcript(s).
+
+**No invariant regressed vs the previous run (2026-09-25).**
+
+Recovered: `noRunaway` on fix-bug (qwen2.5-coder:32b).
+
