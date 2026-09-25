@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Runs every tool (pi, Goose default, Goose toolshim, Hermes, Polyglot) against one
+# Runs every tool (pi, Goose default, Goose toolshim, Hermes, opencode, Polyglot) against one
 # model in sequence, so testing a new model - e.g. a scale check like qwen2.5-coder:32b
 # - is one command instead of five. Mirrors each individual run-*.mjs/.sh script's own
 # defaults exactly; this is a thin sequencer, not a reimplementation.
@@ -51,6 +51,7 @@ run_leg "pi" node run-pi.mjs "$MODEL" "$TRIALS"
 run_leg "goose" node run-goose.mjs "$MODEL" "$TRIALS"
 run_leg "goose-toolshim" env GOOSE_HARNESS_TOOLSHIM=1 GOOSE_HARNESS_TOOLSHIM_MODEL="${GOOSE_HARNESS_TOOLSHIM_MODEL:-llama3.2:3b}" node run-goose.mjs "$MODEL" "$TRIALS"
 run_leg "hermes" node run-hermes.mjs "$MODEL" "$TRIALS"
+run_leg "opencode" node run-opencode.mjs "$MODEL" "$TRIALS"
 run_leg "polyglot" ./run-polyglot.sh "$MODEL" "$TRIALS"
 
 echo
