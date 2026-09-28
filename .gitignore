@@ -1,5 +1,6 @@
 harness/node_modules/
 harness/.venv/
+harness/vllm-venv/
 # pi: keep only the model/auth config, not session state
 harness/pi-home/**
 !harness/pi-home/

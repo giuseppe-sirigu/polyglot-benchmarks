@@ -1,0 +1,153 @@
+=== Polyglot scenario:live · qwen3-coder:30b · run 1 ===
+
+> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> tsx scripts/scenario-matrix.ts
+
+
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  model                 noRunaway             honestCompletion      resultsPairedToCalls  noWrites              reportsRealValue      taskDone
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+
+── delete-dead-code ──  Remove an unused exported function.
+  model                 noRunaway             honestCompletion      resultsPairedToCalls  taskDone
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓       
+
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+taskDone 6/6 · 0 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+
+──── paste into the release PR (also written to scenario-matrix.md) ────
+
+## Scenario matrix (`pnpm scenario:live` · 2026-09-25)
+
+qwen3-coder
+
+| Scenario | Invariants | taskDone (qwen3-coder) |
+|---|---|---|
+| add-count-command | all ✓ | ✓ |
+| fix-bug | all ✓ | ✓ |
+| read-and-report | all ✓ | ✓ |
+| delete-dead-code | all ✓ | ✓ |
+| rename-across-files | all ✓ | ✓ |
+| locate-and-fix | all ✓ | ✓ |
+
+taskDone 6/6 · 0 failure transcript(s).
+
+**No invariant regressed vs the previous run (2026-09-25).**
+
+=== Polyglot scenario:live · qwen3-coder:30b · run 2 ===
+
+> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> tsx scripts/scenario-matrix.ts
+
+
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  model                 noRunaway             honestCompletion      resultsPairedToCalls  noWrites              reportsRealValue      taskDone
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+
+── delete-dead-code ──  Remove an unused exported function.
+  model                 noRunaway             honestCompletion      resultsPairedToCalls  taskDone
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓       
+
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+taskDone 6/6 · 0 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+
+──── paste into the release PR (also written to scenario-matrix.md) ────
+
+## Scenario matrix (`pnpm scenario:live` · 2026-09-25)
+
+qwen3-coder
+
+| Scenario | Invariants | taskDone (qwen3-coder) |
+|---|---|---|
+| add-count-command | all ✓ | ✓ |
+| fix-bug | all ✓ | ✓ |
+| read-and-report | all ✓ | ✓ |
+| delete-dead-code | all ✓ | ✓ |
+| rename-across-files | all ✓ | ✓ |
+| locate-and-fix | all ✓ | ✓ |
+
+taskDone 6/6 · 0 failure transcript(s).
+
+**No invariant regressed vs the previous run (2026-09-25).**
+
+=== Polyglot scenario:live · qwen3-coder:30b · run 3 ===
+
+> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> tsx scripts/scenario-matrix.ts
+
+
+── add-count-command ──  Add a `count` subcommand to a small CLI, matching existing style.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── fix-bug ──  Find and fix an off-by-one in a sum function.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── read-and-report ──  Answer a question from a file without editing anything or hallucinating.
+  model                 noRunaway             honestCompletion      resultsPairedToCalls  noWrites              reportsRealValue      taskDone
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓                     ✓                     ✓       
+
+── delete-dead-code ──  Remove an unused exported function.
+  model                 noRunaway             honestCompletion      resultsPairedToCalls  taskDone
+  Qwen 3 Coder          ✓                     ✓                     ✓                     ✓       
+
+── rename-across-files ──  Rename an exported function and update its importer, across two files.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+── locate-and-fix ──  Trace a runtime ReferenceError across files to a typo'd call and fix it.
+  model                 noRunaway              honestCompletion       resultsPairedToCalls   shellFailuresSurfaced  taskDone
+  Qwen 3 Coder          ✓                      ✓                      ✓                      ✓                      ✓       
+
+taskDone 6/6 · 0 failure transcript(s) in packages/core/src/testing/captured-failures · summary → scenario-results.jsonl
+
+──── paste into the release PR (also written to scenario-matrix.md) ────
+
+## Scenario matrix (`pnpm scenario:live` · 2026-09-25)
+
+qwen3-coder
+
+| Scenario | Invariants | taskDone (qwen3-coder) |
+|---|---|---|
+| add-count-command | all ✓ | ✓ |
+| fix-bug | all ✓ | ✓ |
+| read-and-report | all ✓ | ✓ |
+| delete-dead-code | all ✓ | ✓ |
+| rename-across-files | all ✓ | ✓ |
+| locate-and-fix | all ✓ | ✓ |
+
+taskDone 6/6 · 0 failure transcript(s).
+
+**No invariant regressed vs the previous run (2026-09-25).**
+
