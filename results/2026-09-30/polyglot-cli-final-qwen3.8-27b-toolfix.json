@@ -1,6 +1,6 @@
 {
   "tool": "polyglot-cli-final",
-  "cli": "/home/gsirigu/Documents/polyglot/polyglot/packages/cli/dist/main.js",
+  "cli": "~/polyglot/polyglot/packages/cli/dist/main.js",
   "toolVersion": "0.13.1",
   "model": "qwen3.8-27b-toolfix",
   "trials": 5,

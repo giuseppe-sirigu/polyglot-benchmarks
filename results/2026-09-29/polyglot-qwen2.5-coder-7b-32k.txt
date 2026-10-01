@@ -1,6 +1,6 @@
 === Polyglot scenario:live · qwen2.5-coder-7b-32k · run 1 ===
 
-> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> @usepolyglot/monorepo@0.0.0 scenario:live ~/polyglot/polyglot
 > tsx scripts/scenario-matrix.ts
 
  ELIFECYCLE  Command failed with exit code 1.

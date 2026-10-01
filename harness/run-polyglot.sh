@@ -4,9 +4,9 @@
 # packages/core/src/testing/scenarios.ts); this benchmark's scenarios.mjs is a
 # faithful transcription for the other tools.
 #
-#   POLYGLOT_REPO=~/Documents/polyglot/polyglot ./run-polyglot.sh "qwen2.5-coder:7b" 3
+#   POLYGLOT_REPO=../../polyglot ./run-polyglot.sh "qwen2.5-coder:7b" 3
 set -euo pipefail
-REPO="${POLYGLOT_REPO:-$HOME/Documents/polyglot/polyglot}"
+REPO="${POLYGLOT_REPO:-$(cd "$(dirname "$0")/../.." && pwd)/polyglot}"
 MODEL="${1:-qwen2.5-coder:7b}"
 RUNS="${2:-3}"
 DATE="$(date +%F)"

@@ -1,6 +1,7 @@
 {
   "name": "polyglot-benchmarks-harness",
   "private": true,
+  "license": "Apache-2.0",
   "type": "module",
   "description": "Runners for the open-weight tool-call reliability benchmark",
   "dependencies": {

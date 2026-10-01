@@ -6,18 +6,18 @@
 //
 //   node run-polyglot-cli.mjs <model> [trials]
 //
-// Requires: a built Polyglot checkout (POLYGLOT_REPO, default ~/Documents/polyglot/polyglot,
+// Requires: a built Polyglot checkout (POLYGLOT_REPO, default a `polyglot` checkout next to this repo,
 // `pnpm build`), Ollama running with <model> pulled. Uses an isolated HOME (polyglot-home/)
 // with default settings, so the developer's own ~/.polyglot config never leaks in.
 import { execFileSync } from "node:child_process";
 import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { homedir, tmpdir } from "node:os";
+import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { SCENARIOS } from "./scenarios.mjs";
 import { verifyScenario } from "./verify.mjs";
 
 const HERE = import.meta.dirname;
-const REPO = process.env.POLYGLOT_REPO || join(homedir(), "Documents/polyglot/polyglot");
+const REPO = process.env.POLYGLOT_REPO || join(HERE, "..", "..", "polyglot");
 // POLYGLOT_CLI points at a specific build (e.g. an npm-installed release) instead of the repo.
 const CLI = process.env.POLYGLOT_CLI || join(REPO, "packages/cli/dist/main.js");
 const POLYGLOT_HOME = join(HERE, "polyglot-home");

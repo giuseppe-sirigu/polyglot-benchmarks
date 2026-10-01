@@ -1,6 +1,6 @@
 {
   "tool": "polyglot-cli-fixed",
-  "repo": "/home/gsirigu/Documents/polyglot/polyglot-fixes",
+  "repo": "~/polyglot/polyglot-fixes",
   "toolVersion": "0.13.1",
   "model": "gpt-oss-20b-32k",
   "trials": 3,
