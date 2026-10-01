@@ -1,0 +1,4 @@
+{"kind":"header","id":"74d1f235-0fd0-4dc9-9d86-927fdc97487b","cwd":"/tmp/bench-polyglot-ZR6EC3","provider":"openai-compatible","model":"devstral-small-2-24b-32k","createdAt":1790706497983}
+{"kind":"message","message":{"id":"270c6c23-c971-4689-b474-200531308bd7","role":"user","content":"Remove the unused() function from util.mjs. Nothing imports it.","createdAt":1790706497985}}
+{"kind":"turn_usage","model":"devstral-small-2-24b-32k","inputTokens":1131,"outputTokens":22,"costUSD":0,"at":1790706504982}
+{"kind":"message","message":{"id":"dbf2fe3a-3ba3-4b29-95fa-40e1609e040e","role":"assistant","content":"<glob_call name=\"glob\">\n{\"pattern\": \"**/*util*.mjs\"}\n</glob_call>","createdAt":1790706504985}}

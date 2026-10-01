@@ -18,3 +18,5 @@ harness/hermes-home/**
 harness/opencode-home/
 *.log
 .DS_Store
+# polyglot: settings.json is rewritten by run-polyglot-cli.mjs on every run
+harness/polyglot-home/

@@ -1,0 +1,420 @@
+{
+  "tool": "polyglot-cli-v2",
+  "cli": "/home/gsirigu/Documents/polyglot/polyglot/packages/cli/dist/main.js",
+  "toolVersion": "0.13.1",
+  "model": "qwen2.5-coder-14b-32k",
+  "trials": 5,
+  "date": "2026-09-30",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 4,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 9,
+          "timedOut": false,
+          "repaired": 4,
+          "inputTokens": 26758,
+          "outputTokens": 3200,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": "transcripts/polyglot-cli-v2-qwen2.5-coder-14b-32k-add-count-command-t1.jsonl",
+          "finalTextHead": "First, I'll read the contents of `todo.mjs` using the `read_file` tool:\n\nI will now add a \"count\" command to the switch that prints the number of todos, matching the existing code style:\n\nI understand the issue with the previous attempt. I will ensure that the `old_string` matches the exact content from the original file and use it correctly in the `edit_file` tool call.\n\nHere are the precise contents for `old_string`:\n\n```ts\ndefault:\n    console.log('usage: todo <add|done|list>');\n}\n```\n\nI'll now retry with the correct `old_string` and add a new `case 'count':` block before the default case.\n"
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 4021,
+          "outputTokens": 159,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "The \"count\" command has been added to the switch in `todo.mjs`. The file now includes a new case that prints the number of todos."
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 4117,
+          "outputTokens": 216,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "Sure, let's start by reading the contents of `todo.mjs`.\n\n\n\nOnce I have the file content, I will add a new \"count\" command to the switch statement that prints the number of todos.Thank you for providing the file content. Now I'll add a \"count\" command to the switch that prints the number of todos, matching the existing code style.\n\n\n\nThis will insert the new \"count\" case into the switch statement, ensuring it matches the existing indentation and style.The \"count\" command has been successfully added to `todo.mjs`. If you need any further modifications or have additional tasks, feel free to let "
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3970,
+          "outputTokens": 330,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "The \"count\" command has been added to the switch in `todo.mjs`. The file has been updated accordingly. Here is the modified content for verification:\n\n```javascript\nimport { readFileSync, writeFileSync } from \"node:fs\";\n\nconst FILE = \"todos.json\";\nconst todos = JSON.parse(readFileSync(FILE, \"utf8\"));\nconst [cmd, ...rest] = process.argv.slice(2);\n\nswitch (cmd) {\n  case \"add\":\n    todos.push({ text: rest.join(\" \"), done: false });\n    writeFileSync(FILE, JSON.stringify(todos, null, 2));\n    break;\n  case \"done\":\n    todos[Number(rest[0])].done = true;\n    writeFileSync(FILE, JSON.stringify(todos"
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3972,
+          "outputTokens": 113,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "Great, the \"count\" command has been added to the switch statement. If you need any further modifications or have additional tasks, feel free to let me know!"
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3901,
+          "outputTokens": 244,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To find and fix the bug in `sum.mjs`, I'll start by checking its contents using the `read_file` tool.\n\nThe bug in the code is that the loop starts from index 1 instead of index 0. This causes the first element (10) to be excluded from the sum. I'll fix this by changing the loop's starting index.\n\n\n\nAfter editing the file, I'll verify the fix by running `sum.mjs`.\n\nThe bug has been fixed, and the output is now correctly 60. The function now includes all elements in the array when calculating the sum.\n\nIf you have any further tasks or need additional assistance, feel free to let me know!"
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 5464,
+          "outputTokens": 275,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To find and fix the bug in `sum.mjs`, I'll follow these steps:\n\n1. Read the content of `sum.mjs`.\n2. Identify the issue causing it to sum to 50 instead of 60.\n3. Correct the code.\n4. Verify the fix.\n\nLet's start by reading the content of `sum.mjs`.\n\nThe issue in the code is that the loop starts from index 1 instead of index 0. This causes it to ignore the first element (10) in the array, resulting in a sum of 50 instead of 60.\n\nI'll fix the bug by changing `let i = 1;` to `let i = 0;`.\n\nNow that the bug has been fixed, I'll verify by running the code.\n\nThe fix was successful. The `sum.mjs` fun"
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 5277,
+          "outputTokens": 198,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To find and fix the bug in `sum.mjs`, let's start by reading its content.\n\nThe bug in the code is that the loop starts from index 1 instead of index 0. This causes the number at index 0 (which is 10 in the example) to be excluded from the sum.\n\nLet's fix this by changing the starting index of the loop.\n\nNow, let's verify the fix by running the file.\n\nThe bug has been fixed and verified. The code now correctly prints 60 for the input [10, 20, 30]."
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3966,
+          "outputTokens": 274,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To find and fix the bug in `sum.mjs`, I'll follow these steps:\n\n1. Read the content of `sum.mjs`.\n2. Identify the bug.\n3. Fix the bug.\n4. Verify the fix by running the script.\n\nLet's start by reading the content of `sum.mjs`.\n\nThe bug in the code is that the loop starts from index `1` instead of `0`. This means it doesn't include the first element of the array in the sum. To fix this, we need to change the starting point of the loop from `1` to `0`.\n\nLet's edit the file and fix the bug.\n\n\n\nNext, I'll verify the fix by running the script.\n\nThe bug has been fixed, and the script now correctly pr"
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3911,
+          "outputTokens": 257,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To find and fix the bug in `sum.mjs`, I'll first read its contents to understand what's happening.\n\nThe issue is that the loop in the `sum` function starts from index 1 instead of index 0. This means it's not adding the first element of the array (`nums[0]`) to the total.\n\nLet's fix this by changing the loop to start from index 0.\n\n\n\nAfter fixing the bug, let's verify that it works correctly by running the `sum.mjs` file.\n\nThe bug has been fixed, and the output is now correct. The sum of `[10, 20, 30]` is indeed `60`.\n\nIf you have any more questions or need further assistance, feel free to ask"
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2330,
+          "outputTokens": 24,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "8443"
+        },
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2354,
+          "outputTokens": 62,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To find out what port is configured in `service.json`, I'll first check if the file exists and then read its contents.\n\nThe port configured in `service.json` is **8443**."
+        },
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2330,
+          "outputTokens": 24,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "8443"
+        },
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2363,
+          "outputTokens": 66,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To find out which port is configured in `service.json`, I'll first check if the file exists and then read its content to locate the relevant configuration.\n\nThe port configured in `service.json` is 8443."
+        },
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2363,
+          "outputTokens": 69,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To determine the port configured in `service.json`, I need to read the contents of that file and extract the relevant information.\n\nLet's start by reading the file:\n\nThe port configured in `service.json` is **8443**."
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 8492,
+          "outputTokens": 329,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To remove the `unused()` function from util.mjs, I'll first identify where it's located and then use an edit_file to delete it.\n\nLet's start by searching for the function in the file.\nNow that I have the location of the `unused()` function, I'll use an edit_file to remove it.\n\nLet's make sure we have the correct text for the function, including its body.\n\nThe `unused()` function includes a comment. We need to ensure that the old_string exactly matches, including whitespace.\n\nThe `unused()` function has been removed from util.mjs. The file should now look like this:\n\nThe `unused()` function has"
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3780,
+          "outputTokens": 206,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To remove the `unused()` function from `util.mjs`, I'll first read the file to check its contents, then edit the file by removing the function definition.\n\n\n\nOnce I have the contents of the file, I'll identify and remove the `unused()` function.I'll now edit `util.mjs` to remove the `unused()` function.\n\nThe `unused()` function has been successfully removed from `util.mjs`. Here's the updated content of the file:\n\n```javascript\nexport function used(x) {\n  return x * 2;\n}\n\nconsole.log(used(21));\n```\n\nIs there anything else you'd like me to do?"
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 5223,
+          "outputTokens": 260,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "Sure, let me start by checking if the file `util.mjs` exists and contains the `unused()` function.\n\nFirst, I'll use the `read_file` tool to read the contents of `util.mjs`.\n\nThe `unused()` function is present in the file. I will use the `edit_file` tool to remove it.\n\nThe `unused()` function has been removed from `util.mjs`. I will read the file again to confirm the changes.\n\nThe `unused()` function has successfully been removed. The file now only contains the `used()` function and the console log statement.\n\nHere is the final content of `util.mjs`:\n\n```javascript\nexport function used(x) {\n  r"
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 5188,
+          "outputTokens": 239,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "Sure, let's start by checking if the `util.mjs` file exists and then identify the lines where the `unused()` function is defined.\n\nThe `unused()` function is defined in the file `util.mjs`. Now, I will remove it using the `edit_file` tool.\n\nThe `unused()` function has been successfully removed from the `util.mjs` file. Below is the updated content of the file.\n\nThe updated content of `util.mjs` after removing the `unused()` function:\n\n```javascript\nexport function used(x) {\n  return x * 2;\n}\n\nconsole.log(used(21));\n```\n\nGreat, the `unused()` function has been successfully removed."
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 6712,
+          "outputTokens": 339,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To remove the `unused()` function from `util.mjs`, I need to first check if the file exists and then edit it by removing the function definition.\n\nLet's start by checking if the file exists using a glob pattern.\n\nThe file `util.mjs` exists. Now, I'll use `read_file` to get the contents of the file and then `edit_file` to remove the `unused()` function.\n\nThe `unused()` function is present in the file. Now I'll remove it using `edit_file`.\n\nThe `unused()` function has been successfully removed. The file `util.mjs` now looks like this:\n\n```javascript\nexport function used(x) {\n  return x * 2;\n}\n\nc"
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 4,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 11,
+          "timedOut": false,
+          "repaired": 2,
+          "inputTokens": 24458,
+          "outputTokens": 963,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To achieve this task, I'll follow these steps:\n\n1. Rename the `add` function to `sum` in `math.mjs`.\n2. Update `main.mjs` to use the new function name `sum`.\n3. Run `main.mjs` to check if it still works.\n\n### Step 1: Rename `add` to `sum` in `math.mjs`\n\n\n\n### Step 2: Update `main.mjs` to use the new function name `sum`\n\nThe `read_file` tool results indicate the current contents of `math.mjs` and `main.mjs`. Now, I will rename the `add` function to `sum` in `math.mjs` and update `main.mjs` accordingly.\n\n### Update `math.mjs`\n\nThanks! Now, I will run `main.mjs` to verify that it still works corr"
+        },
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 17602,
+          "outputTokens": 714,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To achieve this task, I'll follow these steps:\n1. Find the path of `math.mjs`.\n2. Rename the exported `add` function to `sum` in `math.mjs`.\n3. Update `main.mjs` to use the renamed `sum` function.\n4. Run `main.mjs` to ensure it still works.\n\nLet's start by finding the path of `math.mjs`.\n\nGreat, we have found `math.mjs` at the root directory. Now, let's edit `math.mjs` to rename the exported `add` function to `sum`.\n\n\n\nNext, we need to update `main.mjs` to use the renamed `sum` function. First, let's find the path of `main.mjs`.\n\nGreat, we have found `main.mjs` at the root directory. Now, let'"
+        },
+        {
+          "completed": true,
+          "toolCalls": 8,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 14873,
+          "outputTokens": 586,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To rename the exported `add` function in `math.mjs` to `sum` and update `main.mjs` to match, I will follow these steps:\n\n1. Read the contents of `math.mjs`.\n2. Rename the exported function from `add` to `sum`.\n3. Write the updated content back to `math.mjs`.\n4. Read the contents of `main.mjs`.\n5. Update the import statement to use `sum` instead of `add`.\n6. Write the updated content back to `main.mjs`.\n7. Run `main.mjs` using bash.\n\nLet's start with reading the contents of `math.mjs`.\n\nNext, I will rename the exported function from `add` to `sum` in `math.mjs`.\n\nNow, I will read the contents o"
+        },
+        {
+          "completed": false,
+          "toolCalls": 8,
+          "timedOut": false,
+          "repaired": 1,
+          "inputTokens": 7295,
+          "outputTokens": 878,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": "transcripts/polyglot-cli-v2-qwen2.5-coder-14b-32k-rename-across-files-t4.jsonl",
+          "finalTextHead": "To achieve this task, I will follow these steps:\n\n1. Rename the `add` function to `sum` in `math.mjs`.\n2. Update `main.mjs` to use the new `sum` function.\n3. Run `main.mjs` to verify that everything works correctly.\n\nHere's how we can proceed with the tool calls:\n\n### Step 1: Rename `add` to `sum` in `math.mjs`\n\n```bash\n# First, read the content of math.mjs\n\n\n# Once I have the content, use edit_file to rename add to sum\n\n### Step 2: Update `main.mjs` to use the new `sum` function\n\n```bash\n# Read the content of main.mjs\n\n\n# Use edit_file to replace add with sum in main.mjs\n\n### Step 3: Run `mai"
+        },
+        {
+          "completed": true,
+          "toolCalls": 11,
+          "timedOut": false,
+          "repaired": 1,
+          "inputTokens": 12655,
+          "outputTokens": 721,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To accomplish this task, I'll follow these steps:\n\n1. Read the content of `math.mjs` and `main.mjs`.\n2. Rename the exported function in `math.mjs`.\n3. Update `main.mjs` to use the new function name.\n4. Save both files with the changes.\n5. Run `main.mjs` to check if it still works correctly.\n\nLet's begin by reading the contents of `math.mjs` and `main.mjs`.\n\n\n\nNext, I'll rename the exported \"add\" function in `math.mjs` to \"sum\".\n\n\n\nThen, I'll update `main.mjs` to use the new function name.\n\n\n\nAfter these changes, I'll save both files and run `main.mjs` to check if it still works correctly.\n\nIt "
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 3,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 6818,
+          "outputTokens": 337,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To troubleshoot the `ReferenceError` when running `node main.mjs`, I'll start by checking if there's any missing imports or undefined variables in the code.\n\nLet's first read the contents of `main.mjs` to inspect its content:\n\nThe file `main.mjs` imports a function `greet` from `./greet.mjs`. Let's check the contents of `greet.mjs` to ensure it exports the `greet` function correctly:\n\nIn `greet.mjs`, the function `greet` uses a variable `fmtName` which is not defined. It should be using `formatName` instead. Let's edit `greet.mjs` to correct this:\n\nThe edit was successful. Now, let's run `node"
+        },
+        {
+          "completed": true,
+          "toolCalls": 9,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 16704,
+          "outputTokens": 726,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To debug and fix the `ReferenceError`, I'll follow these steps:\n\n1. Ensure the file `main.mjs` exists.\n2. Check for syntax errors or missing variables that might be causing the reference error.\n3. Fix the identified issues and run the script again.\n\nLet's start by checking if the file `main.mjs` exists using the glob tool.\n\nThe file `main.mjs` exists. Now, let's read its contents to identify the cause of the ReferenceError.\n\nThe content of `main.mjs` is:\n\n```javascript\nimport { greet } from \"./greet.mjs\";\nconsole.log(greet(\"Ada\", \"Lovelace\"));\n```\n\nThis suggests that the error might be due to "
+        },
+        {
+          "completed": false,
+          "toolCalls": 14,
+          "timedOut": false,
+          "repaired": 5,
+          "inputTokens": 30559,
+          "outputTokens": 1174,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": "transcripts/polyglot-cli-v2-qwen2.5-coder-14b-32k-locate-and-fix-t3.jsonl",
+          "finalTextHead": "To diagnose and fix the `ReferenceError` thrown by running `node main.mjs`, I need to examine the contents of the `main.mjs` file and look for any undefined variables or syntax errors that might be causing the issue.\n\nFirst, let's read the contents of `main.mjs`.\n\nThe contents of `main.mjs` import a function `greet` from `./greet.mjs`. To resolve the `ReferenceError`, I need to check if `greet.mjs` exists and contains the exported function.\n\nLet's read the contents of `greet.mjs`.\n\nThe contents of `greet.mjs` attempt to import a function `formatName` from `./utils.mjs`. However, there is a typ"
+        },
+        {
+          "completed": false,
+          "toolCalls": 5,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 8600,
+          "outputTokens": 745,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": "transcripts/polyglot-cli-v2-qwen2.5-coder-14b-32k-locate-and-fix-t4.jsonl",
+          "finalTextHead": "To diagnose and fix the `ReferenceError` thrown by running `node main.mjs`, we need to identify the specific error message and understand what caused it. Here are the steps I'll take:\n\n1. **Run the script with detailed error information** to get more context about the ReferenceError.\n2. **Identify the missing reference** from the detailed error message.\n3. **Fix the issue** by either defining the missing variable or fixing the reference.\n4. **Verify that the script runs successfully** after the fix.\n\nLet's start by running the script with detailed error information.\n\nThe error message indicate"
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 8823,
+          "outputTokens": 555,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "To diagnose and fix the issue with `main.mjs`, I'll follow these steps:\n\n1. **Check for JavaScript syntax errors:** Look for any syntax errors in the code.\n2. **Identify the reference error:** Determine which variable or function is causing the ReferenceError.\n3. **Fix the reference error:** Correct the issue found in step 2.\n4. **Verify the fix:** Run `node main.mjs` again to ensure the error is resolved.\n\nLet's start by checking for any syntax errors using `grep`.\n\nSince there are no syntax errors or ReferenceErrors highlighted, let's directly read the content of `main.mjs` to identify and f"
+        }
+      ]
+    }
+  ],
+  "totalPass": 26,
+  "totalTrials": 30
+}

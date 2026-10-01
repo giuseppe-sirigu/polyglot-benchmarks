@@ -33,42 +33,51 @@ Each is seeded into a fresh temp directory per run.
 
 ## The tools
 
+Versions used in the 30-run grid (2026-09-29 to 2026-10-01; each result file records its own):
+
 | tool | version | tool-call mechanism |
 |---|---|---|
-| Polyglot | 0.11.0 | free-text `<tool_call>` grammar + streaming repair pipeline |
+| Polyglot | 0.13.1 + branch `fix/tool-call-format-coverage` (released as 0.13.2) | free-text `<tool_call>` grammar + streaming repair; also reads native `tool_calls` |
 | pi | 0.85.1 | native function calling (OpenAI `tools` / `tool_calls`) |
-| Hermes Agent | *(planned)* | multi-format tool-call parser |
+| goose | 1.52.0 | native function calling |
+| goose + toolshim | 1.52.0 | a second local model (llama3.2 3B) turns the main model's text into tool calls |
+| Hermes Agent | 0.19.0 | native function calling |
+| opencode | 1.18.32 | native function calling (runs in Docker) |
 
 ## Models
 
-Local, via Ollama (`http://localhost:11434/v1`), on an RTX 5080 16GB:
+Local, via Ollama (`http://localhost:11434/v1`), on an RTX 5080 16GB, each as a 32k-context variant:
 
-- `llama3.2:3b` — weak baseline
-- `qwen2.5-coder:7b` — "common first pick"; capable coder, unreliable native FC
-- `qwen2.5-coder:14b` — solid
-- `qwen3-coder` (30B-A3B) — strong native FC
+- `qwen3.8-27b-toolfix` - Qwen3.8 27B (Unsloth GGUF Q4_K_M) with a chat template that passes tools through, 32k context
+- `gpt-oss-20b-32k`, `devstral-small-2-24b-32k`, `qwen3-coder-30b-32k` - current models with strong native FC
+- `qwen2.5-coder-{7b,14b,32b}-32k` - capable coders that write tool calls as text through Ollama
+
+**Context length.** Ollama defaults to a 4,096-token context and silently truncates anything longer. goose,
+Hermes and opencode send 4-8k tokens of system prompt, so at the default they ran on a prompt missing most of
+their instructions and the task. Every grid model is a variant with `PARAMETER num_ctx 32768`; `run-all.sh`
+refuses a model below 16k and, after each leg, counts "truncating input prompt" warnings in the Ollama log and
+marks the leg invalid if there are any. Results before 2026-09-29 predate this and are superseded.
 
 ## Running
 
-- **pi:** `pi -p --mode json --no-session --no-context-files --provider ollama
-  --model <m> "<prompt>"` in the seeded temp dir. YOLO tool approval (pi's default
-  in `-p`). Isolated `HOME` (`harness/pi-home/`) so the real user config is
-  untouched.
-- **Polyglot:** its own `pnpm scenario:live` harness, which drives `runAgentTurn`
-  with real tools against a real temp dir and records invariants + task completion.
+Every agent runs headless in a fresh seeded temp directory per run, with an isolated `HOME` so no user config
+leaks in, and all tools auto-approved:
 
-Trials: 2–4 per (tool, model, task); weak models are nondeterministic, so single
-runs are noise.
+- **Polyglot:** `polyglot -p --output-format json --allow-all` (`run-polyglot-cli.mjs`)
+- **pi:** `pi -p --mode json --no-session --no-context-files --provider ollama --model <m> "<prompt>"`
+- **goose, Hermes, opencode:** their headless modes, via `run-goose.mjs`, `run-hermes.mjs`, `run-opencode.mjs`
+
+Trials: 5 per (tool, model, task), so 30 runs per cell; 600 s timeout per run.
 
 ## Scoring
 
 `scenarios.mjs` carries a `done(files, finalText)` predicate per task, tolerant of
 formatting (e.g. `rename-across-files` checks the export was renamed *and* the
-importer updated *and* no stale reference remains). Polyglot's side uses the
-equivalent `taskDone` check from its suite.
+importer updated *and* no stale reference remains), plus a verify command run after the agent finishes.
+Every agent, Polyglot included, is scored by the same predicate and command.
 
-"Zero tool calls" for pi = no `turn_end` event carried a non-empty `toolResults`
-array across the whole run.
+Tiers, fixed before the runs: reliable = 26+/30, sometimes = 12-25, fails = under 12. With 30 runs a 95%
+interval is wide (28/30 is 79-98%), so the claim is the tier, not the count.
 
 ## What this shows — and doesn't
 
@@ -77,15 +86,15 @@ actual output, end to end, on realistic small tasks.
 
 **Doesn't show:**
 
-- Absolute agent quality. Polyglot's own numbers on 7B (~43%) are not good; the
-  finding is comparative.
+- Absolute agent quality. Polyglot's own 12/30 on 7B is not good; the finding is
+  comparative.
 - Performance on large / long-context / multi-hour tasks.
 - pi at its best. pi is tested only against Ollama's OpenAI-compat endpoint (the
   realistic local setup); a different pi provider config or Ollama's native API
   might behave differently. Not chased.
 - Hosted models, where every tool does well and native FC is reliable.
-- Hermes Agent's tolerant-parsing path — the one most likely to match Polyglot's
-  behaviour. **This is the main gap until it's added.**
+- A fresh task set. Polyglot's parser fixes came from these tasks' transcripts; the
+  failure formats are general, but other agents got no such tuning.
 
 ## Reproducibility notes
 

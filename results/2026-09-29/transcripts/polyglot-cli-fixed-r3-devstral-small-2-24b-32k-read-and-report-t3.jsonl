@@ -1,0 +1,10 @@
+{"kind":"header","id":"d80f6a65-0f3e-4a09-a929-767eaa2657c1","cwd":"/tmp/bench-polyglot-4d619b","provider":"openai-compatible","model":"devstral-small-2-24b-32k","createdAt":1790708450945}
+{"kind":"message","message":{"id":"a867c9cc-c142-4851-b52b-943d6a77bdde","role":"user","content":"What port does service.json configure? Just tell me the number.","createdAt":1790708450947}}
+{"kind":"turn_usage","model":"devstral-small-2-24b-32k","inputTokens":1132,"outputTokens":12,"costUSD":0,"at":1790708477294}
+{"kind":"message","message":{"id":"827a9ac6-0257-44ab-bbc3-27f65020896a","role":"assistant","content":"<glob pattern=\"**/service.json\"></glob>","createdAt":1790708477297}}
+{"kind":"message","message":{"id":"c9f568d2-8d99-45f6-9041-01a879bc5509","role":"user","content":"<tool_result name=\"glob\" status=\"error\">\nArguments for \"glob\" could not be parsed as JSON: empty body. The body must be one JSON object; inside string values escape every \" as \\\" and every newline as \\n, and never wrap file content in <syntax>, <block>, or markdown fences.\n</tool_result>","createdAt":1790708477298}}
+{"kind":"turn_usage","model":"devstral-small-2-24b-32k","inputTokens":1217,"outputTokens":12,"costUSD":0,"at":1790708481299}
+{"kind":"message","message":{"id":"d23288c2-cc5b-4750-a25a-f84099592cc4","role":"assistant","content":"<glob pattern=\"**/service.json\"></glob>","createdAt":1790708481300}}
+{"kind":"message","message":{"id":"22011cb3-1cc8-474c-b0d3-f703d7e82830","role":"user","content":"<tool_result name=\"glob\" status=\"error\">\nArguments for \"glob\" could not be parsed as JSON: empty body. The body must be one JSON object; inside string values escape every \" as \\\" and every newline as \\n, and never wrap file content in <syntax>, <block>, or markdown fences.\n</tool_result>","createdAt":1790708481301}}
+{"kind":"turn_usage","model":"devstral-small-2-24b-32k","inputTokens":1302,"outputTokens":23,"costUSD":0,"at":1790708487616}
+{"kind":"message","message":{"id":"f2e84ac6-d4f5-42c5-b740-9ed58491ee6c","role":"assistant","content":"<bash command=\"find . -name service.json 2>/dev/null | head -1\"></bash>","createdAt":1790708487618}}

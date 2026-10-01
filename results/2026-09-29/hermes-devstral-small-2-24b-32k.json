@@ -1,0 +1,209 @@
+{
+  "tool": "hermes",
+  "toolVersion": "Hermes Agent v0.19.0 (2026.7.20)",
+  "model": "devstral-small-2-24b-32k",
+  "trials": 5,
+  "date": "2026-09-29",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 32,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 14,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 14,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 14,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 13,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 9,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 18,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        }
+      ]
+    }
+  ],
+  "totalPass": 30,
+  "totalTrials": 30
+}

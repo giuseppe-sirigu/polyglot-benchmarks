@@ -1,0 +1,7 @@
+{"kind":"header","id":"b465aaa7-ef36-4c5e-9d35-1ee4c35f1ade","cwd":"/tmp/bench-polyglot-TL0KzP","provider":"openai-compatible","model":"gpt-oss-20b-32k","createdAt":1790706276047}
+{"kind":"message","message":{"id":"c545bb79-440a-4c2d-8420-cd86afa7551e","role":"user","content":"Rename the exported \"add\" function in math.mjs to \"sum\" and update main.mjs to match, then run main.mjs to check it still works.","createdAt":1790706276048}}
+{"kind":"turn_usage","model":"gpt-oss-20b-32k","inputTokens":1218,"outputTokens":49,"costUSD":0,"at":1790706276665}
+{"kind":"message","message":{"id":"878fe6e4-10be-444e-b08b-7e2e6ae021c9","role":"assistant","content":"\n<tool_call name=\"tool_call\">\n{\"command\":\"ls -R .\"}\n</tool_call>\n","createdAt":1790706276668}}
+{"kind":"message","message":{"id":"593065a5-15d8-4cd1-9366-aa20d01dbcc1","role":"user","content":"<tool_result name=\"tool_call\" status=\"error\">\nUnknown tool \"tool_call\". Available tools: read_file, write_file, edit_file, bash, grep, glob, web_fetch, web_search, ask_user_question.\n</tool_result>","createdAt":1790706276669}}
+{"kind":"turn_usage","model":"gpt-oss-20b-32k","inputTokens":1299,"outputTokens":35,"costUSD":0,"at":1790706277090}
+{"kind":"message","message":{"id":"f8aee67f-daaa-4606-9fbd-f7ccb7f702e0","role":"assistant","content":"{\"command\":\"ls -R .\"}","createdAt":1790706277090}}

@@ -1,0 +1,151 @@
+{
+  "tool": "goose-toolshim",
+  "toolVersion": "1.52.0",
+  "model": "gpt-oss-20b-32k",
+  "toolshimInterpreterModel": "llama3.2:3b",
+  "trials": 3,
+  "date": "2026-09-29",
+  "toolCallCountCaveat": "toolCalls counts real toolCall/toolRequest content blocks (seen with the toolshim) plus a best-effort heuristic for JSON-shaped plain-text tool-call attempts (the default, no-toolshim failure mode) - not an authoritative count either way. See run-goose.mjs.",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 1,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 8,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 1,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 1,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 1,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 1,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 10,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 1,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 4,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 1,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 11,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 10,
+          "timedOut": false
+        }
+      ]
+    }
+  ],
+  "totalPass": 6,
+  "totalTrials": 18
+}

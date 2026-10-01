@@ -1,0 +1,276 @@
+{
+  "tool": "polyglot-cli-fixed-r2",
+  "cli": "/home/gsirigu/Documents/polyglot/polyglot/packages/cli/dist/main.js",
+  "toolVersion": "0.13.1",
+  "model": "gpt-oss-20b-32k",
+  "trials": 3,
+  "date": "2026-09-29",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 13886,
+          "outputTokens": 1858,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n\n\n\n\n\n\nThe `count` command has been added to `todo.mjs`. It prints the number of stored todos. The function signature and style now match the existing switch statements, and usage output reflects all available commands."
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 9147,
+          "outputTokens": 2270,
+          "stopReason": "done",
+          "parseErrors": 1,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n\n\n\n\nThe task is complete. The `todo.mjs` file has a new `case \"count\":` that logs the number of todos. All code style matches existing blocks."
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 4403,
+          "outputTokens": 1038,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\nThe file `todo.mjs` has been updated. The new `\"count\"` command now prints the number of todos, matching the existing style."
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 8769,
+          "outputTokens": 501,
+          "stopReason": "done",
+          "parseErrors": 1,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n\n\n\n\nThe bug was that the loop started at index 1, skipping the first array element. I changed it to start at 0. Running the file now outputs `60`, which is correct."
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 6654,
+          "outputTokens": 311,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n{\"command\":\"node sum.mjs\"}"
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 6642,
+          "outputTokens": 328,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n"
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3741,
+          "outputTokens": 78,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n8443"
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3735,
+          "outputTokens": 81,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n8443"
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3728,
+          "outputTokens": 490,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": "transcripts/polyglot-cli-fixed-r2-gpt-oss-20b-32k-read-and-report-t3.jsonl",
+          "finalTextHead": "\n\n\n\n3000"
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 5178,
+          "outputTokens": 194,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\nThe `unused()` function has been removed from `util.mjs`. All references are now cleaned up."
+        },
+        {
+          "completed": false,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 6614,
+          "outputTokens": 650,
+          "stopReason": "done",
+          "parseErrors": 1,
+          "transcript": "transcripts/polyglot-cli-fixed-r2-gpt-oss-20b-32k-delete-dead-code-t2.jsonl",
+          "finalTextHead": "\n\n\n\n\n\n\n\nI inadvertently overwrote `util.mjs` with placeholder text.  \nTo correctly remove the unused function, I’ll need the actual content of that file. Could you paste the current contents of **util.mjs** (or let me know where it can be fetched from)?"
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 6773,
+          "outputTokens": 387,
+          "stopReason": "done",
+          "parseErrors": 1,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n\n\nThe `unused()` function was removed from `util.mjs`."
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 8197,
+          "outputTokens": 752,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\nWe'll edit math.mjs then edit main.mjs accordingly, running the code.\n\n\n\n"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2517,
+          "outputTokens": 84,
+          "stopReason": "unreliable_model",
+          "parseErrors": 1,
+          "transcript": "transcripts/polyglot-cli-fixed-r2-gpt-oss-20b-32k-rename-across-files-t2.jsonl",
+          "finalTextHead": "\n\n{\"command\":\"ls -R .\"}"
+        },
+        {
+          "completed": true,
+          "toolCalls": 7,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 15191,
+          "outputTokens": 840,
+          "stopReason": "done",
+          "parseErrors": 1,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{\"command\":\"node main.mjs\"}"
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 1,
+      "trials": 3,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 3942,
+          "outputTokens": 149,
+          "stopReason": "unreliable_model",
+          "parseErrors": 3,
+          "transcript": "transcripts/polyglot-cli-fixed-r2-gpt-oss-20b-32k-locate-and-fix-t1.jsonl",
+          "finalTextHead": "\n\n\n\n\n\n"
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 11536,
+          "outputTokens": 484,
+          "stopReason": "done",
+          "parseErrors": 0,
+          "transcript": null,
+          "finalTextHead": "\n\n\n\n\n\n\n\n\n\n\n\n"
+        },
+        {
+          "completed": false,
+          "toolCalls": 5,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 11343,
+          "outputTokens": 594,
+          "stopReason": "done",
+          "parseErrors": 1,
+          "transcript": "transcripts/polyglot-cli-fixed-r2-gpt-oss-20b-32k-locate-and-fix-t3.jsonl",
+          "finalTextHead": "\n\n\n\n\n\n\n\n\n\n\n\n{\"command\":\"node --input-type=module -e \\\"import('./main.mjs').then(()=>console.log('ok')).catch(e=>{ console.error('err',e.name,e.message) })\\\"\"}"
+        }
+      ]
+    }
+  ],
+  "totalPass": 13,
+  "totalTrials": 18
+}

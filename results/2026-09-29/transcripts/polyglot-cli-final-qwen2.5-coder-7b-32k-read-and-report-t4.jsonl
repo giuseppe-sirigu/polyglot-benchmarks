@@ -1,0 +1,4 @@
+{"kind":"header","id":"8a3ce5f5-5c49-421d-9609-fff67e8c8ca3","cwd":"/tmp/bench-polyglot-8a94tA","provider":"openai-compatible","model":"qwen2.5-coder-7b-32k","createdAt":1790720890849}
+{"kind":"message","message":{"id":"790725ee-971d-48fe-9119-9d267a9d8be8","role":"user","content":"What port does service.json configure? Just tell me the number.","createdAt":1790720890851}}
+{"kind":"turn_usage","model":"qwen2.5-coder-7b-32k","inputTokens":1135,"outputTokens":22,"costUSD":0,"at":1790720891230}
+{"kind":"message","message":{"id":"31252254-027e-4557-9d88-d0b34ea6f3a0","role":"assistant","content":"```bash\ncat service.json | grep -oP 'port:\\s*\\K\\d+'\n```","createdAt":1790720891232}}

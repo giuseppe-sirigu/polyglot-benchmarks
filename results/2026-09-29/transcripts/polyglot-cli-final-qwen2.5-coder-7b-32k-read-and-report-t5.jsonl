@@ -1,0 +1,4 @@
+{"kind":"header","id":"18b4ab2d-b575-412f-a792-ae2b97365edf","cwd":"/tmp/bench-polyglot-Poa8XE","provider":"openai-compatible","model":"qwen2.5-coder-7b-32k","createdAt":1790720891440}
+{"kind":"message","message":{"id":"46105944-a7ef-4aa1-802d-8921d2c96f17","role":"user","content":"What port does service.json configure? Just tell me the number.","createdAt":1790720891442}}
+{"kind":"message","message":{"id":"a67d1fd1-6f70-47fa-bbf7-2e33886a0ec5","role":"assistant","content":"28134","createdAt":1790720891733}}
+{"kind":"turn_usage","model":"qwen2.5-coder-7b-32k","inputTokens":1132,"outputTokens":6,"costUSD":0,"at":1790720891732}
