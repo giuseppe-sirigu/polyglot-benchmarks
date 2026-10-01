@@ -96,6 +96,24 @@ actual output, end to end, on realistic small tasks.
 - A fresh task set. Polyglot's parser fixes came from these tasks' transcripts; the
   failure formats are general, but other agents got no such tuning.
 
+## Updating the results
+
+Polyglot is our own product, so how its numbers get refreshed matters as much as the numbers.
+
+- **The released build sets the column.** When a grid is published, Polyglot's column comes from the npm
+  release that is current at that time (`@usepolyglot/cli@X.Y.Z`, recorded in each result file), run once on
+  every model, whatever it scores.
+- **No best-of-N.** A build is never re-run to replace a disappointing result, and a new release doesn't
+  replace the column just because it scored higher. It replaces it because it's the release users now
+  install, and the same holds if it scores lower.
+- **Every run stays published.** Earlier builds' results remain in `results/` and are listed in
+  [`results/GRID.md`](results/GRID.md), so a reader can see every draw, not just the one in the headline.
+- **The other agents are re-run when their versions are.** Refreshing another agent's column means a new
+  version of that agent, run once, under the same rules.
+
+The 2026-09-29 grid predates this rule: its Polyglot column is the first of three pre-release builds, and the
+choice between them is described in `results/GRID.md`.
+
 ## Reproducibility notes
 
 - Ollama model versions drift; record `ollama list` output alongside results.
