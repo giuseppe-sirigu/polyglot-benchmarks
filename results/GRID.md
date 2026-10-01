@@ -26,6 +26,8 @@ call in any of the 30 runs, and goose makes some but completes no task.
 The Polyglot column is the first build (`polyglot-cli-final-*`). Two later builds with parser fixes were run on all
 seven models. The rule, set before their results were in: a later build replaces the whole column only if its total
 is the same or better; no model-by-model picking. Neither did, so the grid keeps the first build.
+Future updates follow the released-build rule in [`METHODOLOGY.md`](../METHODOLOGY.md#updating-the-results):
+the column comes from the current npm release, run once, whatever it scores.
 
 | Model | First build (grid) | v2 | v3 |
 |---|---|---|---|
