@@ -1,0 +1,149 @@
+{
+  "tool": "hermes",
+  "toolVersion": "Hermes Agent v0.19.0 (2026.7.20)",
+  "model": "gpt-oss-20b-32k",
+  "trials": 3,
+  "date": "2026-09-29",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 8,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 28,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 10,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 8,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 1,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 10,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 16,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 8,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 12,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 14,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 20,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 26,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 20,
+          "timedOut": false
+        }
+      ]
+    }
+  ],
+  "totalPass": 12,
+  "totalTrials": 18
+}

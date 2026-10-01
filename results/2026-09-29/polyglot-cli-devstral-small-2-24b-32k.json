@@ -1,0 +1,221 @@
+{
+  "tool": "polyglot-cli",
+  "toolVersion": "0.13.1",
+  "model": "devstral-small-2-24b-32k",
+  "trials": 3,
+  "date": "2026-09-29",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 3,
+      "trials": 3,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 4057,
+          "outputTokens": 208,
+          "stopReason": "done"
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 8654,
+          "outputTokens": 242,
+          "stopReason": "done"
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 7516,
+          "outputTokens": 208,
+          "stopReason": "done"
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 5286,
+          "outputTokens": 312,
+          "stopReason": "done"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1152,
+          "outputTokens": 39,
+          "stopReason": "done"
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 6977,
+          "outputTokens": 361,
+          "stopReason": "done"
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 2,
+      "trials": 3,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2320,
+          "outputTokens": 25,
+          "stopReason": "done"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1130,
+          "outputTokens": 18,
+          "stopReason": "done"
+        },
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 2324,
+          "outputTokens": 25,
+          "stopReason": "done"
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1132,
+          "outputTokens": 41,
+          "stopReason": "done"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1131,
+          "outputTokens": 44,
+          "stopReason": "done"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1131,
+          "outputTokens": 65,
+          "stopReason": "done"
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1152,
+          "outputTokens": 26,
+          "stopReason": "done"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1152,
+          "outputTokens": 30,
+          "stopReason": "done"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1152,
+          "outputTokens": 24,
+          "stopReason": "done"
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 1,
+      "trials": 3,
+      "zeroToolCallRuns": 2,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1139,
+          "outputTokens": 45,
+          "stopReason": "done"
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 10618,
+          "outputTokens": 415,
+          "stopReason": "done"
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1140,
+          "outputTokens": 37,
+          "stopReason": "done"
+        }
+      ]
+    }
+  ],
+  "totalPass": 8,
+  "totalTrials": 18
+}

@@ -1,0 +1,239 @@
+{
+  "tool": "polyglot-cli",
+  "toolVersion": "0.13.1",
+  "model": "gpt-oss-20b-32k",
+  "trials": 3,
+  "date": "2026-09-29",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1209,
+          "outputTokens": 43,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1210,
+          "outputTokens": 55,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1212,
+          "outputTokens": 38,
+          "stopReason": "done",
+          "finalTextHead": ""
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1213,
+          "outputTokens": 43,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1215,
+          "outputTokens": 53,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1215,
+          "outputTokens": 36,
+          "stopReason": "done",
+          "finalTextHead": ""
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1196,
+          "outputTokens": 44,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1195,
+          "outputTokens": 40,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1195,
+          "outputTokens": 42,
+          "stopReason": "done",
+          "finalTextHead": ""
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1198,
+          "outputTokens": 70,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1197,
+          "outputTokens": 79,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1197,
+          "outputTokens": 43,
+          "stopReason": "done",
+          "finalTextHead": ""
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1217,
+          "outputTokens": 71,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1217,
+          "outputTokens": 35,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1217,
+          "outputTokens": 48,
+          "stopReason": "done",
+          "finalTextHead": ""
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 0,
+      "trials": 3,
+      "zeroToolCallRuns": 3,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1206,
+          "outputTokens": 59,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1205,
+          "outputTokens": 33,
+          "stopReason": "done",
+          "finalTextHead": ""
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "repaired": 0,
+          "inputTokens": 1206,
+          "outputTokens": 82,
+          "stopReason": "done",
+          "finalTextHead": ""
+        }
+      ]
+    }
+  ],
+  "totalPass": 0,
+  "totalTrials": 18
+}

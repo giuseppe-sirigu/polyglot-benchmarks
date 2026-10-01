@@ -1,0 +1,209 @@
+{
+  "tool": "pi",
+  "toolVersion": "0.85.1",
+  "model": "qwen3-coder-30b-32k",
+  "trials": 5,
+  "date": "2026-09-30",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 3,
+      "trials": 5,
+      "zeroToolCallRuns": 2,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 8,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 11,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 7,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 3,
+      "trials": 5,
+      "zeroToolCallRuns": 2,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 1,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 7,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 5,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false
+        }
+      ]
+    }
+  ],
+  "totalPass": 26,
+  "totalTrials": 30
+}

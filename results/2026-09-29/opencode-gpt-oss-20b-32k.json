@@ -1,0 +1,239 @@
+{
+  "tool": "opencode",
+  "toolVersion": "1.18.32",
+  "model": "gpt-oss-20b-32k",
+  "trials": 5,
+  "date": "2026-09-29",
+  "scenarios": [
+    {
+      "name": "add-count-command",
+      "pass": 0,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": false,
+          "toolCalls": 1,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        }
+      ]
+    },
+    {
+      "name": "fix-bug",
+      "pass": 4,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 4,
+          "timedOut": false,
+          "rawEventCount": 17
+        },
+        {
+          "completed": true,
+          "toolCalls": 7,
+          "timedOut": false,
+          "rawEventCount": 28
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false,
+          "rawEventCount": 20
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": true,
+          "toolCalls": 6,
+          "timedOut": false,
+          "rawEventCount": 23
+        }
+      ]
+    },
+    {
+      "name": "read-and-report",
+      "pass": 3,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 9
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 10
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": true,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 9
+        }
+      ]
+    },
+    {
+      "name": "delete-dead-code",
+      "pass": 4,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 10
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "rawEventCount": 13
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false,
+          "rawEventCount": 21
+        },
+        {
+          "completed": true,
+          "toolCalls": 3,
+          "timedOut": false,
+          "rawEventCount": 13
+        },
+        {
+          "completed": true,
+          "toolCalls": 5,
+          "timedOut": false,
+          "rawEventCount": 20
+        }
+      ]
+    },
+    {
+      "name": "rename-across-files",
+      "pass": 2,
+      "trials": 5,
+      "zeroToolCallRuns": 0,
+      "runs": [
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": false,
+          "toolCalls": 17,
+          "timedOut": false,
+          "rawEventCount": 67
+        },
+        {
+          "completed": true,
+          "toolCalls": 8,
+          "timedOut": false,
+          "rawEventCount": 29
+        },
+        {
+          "completed": true,
+          "toolCalls": 9,
+          "timedOut": false,
+          "rawEventCount": 33
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        }
+      ]
+    },
+    {
+      "name": "locate-and-fix",
+      "pass": 2,
+      "trials": 5,
+      "zeroToolCallRuns": 1,
+      "runs": [
+        {
+          "completed": true,
+          "toolCalls": 7,
+          "timedOut": false,
+          "rawEventCount": 28
+        },
+        {
+          "completed": false,
+          "toolCalls": 0,
+          "timedOut": false,
+          "rawEventCount": 2
+        },
+        {
+          "completed": true,
+          "toolCalls": 7,
+          "timedOut": false,
+          "rawEventCount": 26
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        },
+        {
+          "completed": false,
+          "toolCalls": 2,
+          "timedOut": false,
+          "rawEventCount": 6
+        }
+      ]
+    }
+  ],
+  "totalPass": 15,
+  "totalTrials": 30
+}

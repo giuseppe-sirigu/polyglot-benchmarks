@@ -1,0 +1,10 @@
+{"kind":"header","id":"501f620d-d655-4374-b96a-db349a7f1e42","cwd":"/tmp/bench-polyglot-6PFuxo","provider":"openai-compatible","model":"qwen3.8-27b-toolfix","createdAt":1790767369271}
+{"kind":"message","message":{"id":"be83d5a9-27b4-456f-a237-b65ea5128979","role":"user","content":"What port does service.json configure? Just tell me the number.","createdAt":1790767369272}}
+{"kind":"turn_usage","model":"qwen3.8-27b-toolfix","inputTokens":1230,"outputTokens":54,"costUSD":0,"at":1790767375196}
+{"kind":"message","message":{"id":"3d760564-d9a4-4317-88a7-b492a0540d9a","role":"assistant","content":"<tool_call name=\"glob\">\n{\"pattern\":\"**/service.json\"}\n</tool_call>","createdAt":1790767375209}}
+{"kind":"message","message":{"id":"4c57f71b-3b53-4f7f-bed9-fdf5b3eb990d","role":"user","content":"<tool_result name=\"glob\">\nservice.json\n</tool_result>","createdAt":1790767375214}}
+{"kind":"turn_usage","model":"qwen3.8-27b-toolfix","inputTokens":1277,"outputTokens":39,"costUSD":0,"at":1790767378881}
+{"kind":"message","message":{"id":"43e561bd-deeb-4ca6-8c37-875f9688d2c4","role":"assistant","content":"<tool_call name=\"read_file\">\n{\"path\":\"service.json\"}\n</tool_call>","createdAt":1790767378883}}
+{"kind":"message","message":{"id":"e0a40d71-481d-4b86-9de3-25abc1a5aa0f","role":"user","content":"<tool_result name=\"read_file\">\n{\n  \"name\": \"api\",\n  \"port\": 8443,\n  \"replicas\": 3\n}\n\n</tool_result>","createdAt":1790767378884}}
+{"kind":"turn_usage","model":"qwen3.8-27b-toolfix","inputTokens":1352,"outputTokens":39,"costUSD":0,"at":1790767382465}
+{"kind":"message","message":{"id":"fcd49b4f-c80d-4e8c-9f07-d9da14c44f3e","role":"assistant","content":"(Thinking: I need to invoke a tool call before responding)","createdAt":1790767382466}}

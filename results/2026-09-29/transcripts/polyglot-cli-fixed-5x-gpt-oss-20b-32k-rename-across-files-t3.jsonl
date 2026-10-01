@@ -1,0 +1,16 @@
+{"kind":"header","id":"4e4fb59f-0e3d-48bb-8b94-5de7ad57c6cb","cwd":"/tmp/bench-polyglot-tEwYnf","provider":"openai-compatible","model":"gpt-oss-20b-32k","createdAt":1790714601424}
+{"kind":"message","message":{"id":"d04f2936-44d7-411b-9edb-ac05690badc9","role":"user","content":"Rename the exported \"add\" function in math.mjs to \"sum\" and update main.mjs to match, then run main.mjs to check it still works.","createdAt":1790714601425}}
+{"kind":"turn_usage","model":"gpt-oss-20b-32k","inputTokens":1217,"outputTokens":36,"costUSD":0,"at":1790714601969}
+{"kind":"message","message":{"id":"c54f1a5c-aa5a-4609-baf8-7658317720b7","role":"assistant","content":"\n<tool_call name=\"glob\">\n{\"pattern\":\"*\"}\n</tool_call>\n","createdAt":1790714601981}}
+{"kind":"message","message":{"id":"a27a649b-cc9b-4505-b23e-f1c69e0338bd","role":"user","content":"<tool_result name=\"glob\">\nmain.mjs\nmath.mjs\n</tool_result>","createdAt":1790714601986}}
+{"kind":"turn_usage","model":"gpt-oss-20b-32k","inputTokens":1263,"outputTokens":31,"costUSD":0,"at":1790714602373}
+{"kind":"message","message":{"id":"b4b0c7a0-1242-4613-a9f6-272fce73b5df","role":"assistant","content":"\n<tool_call name=\"read_file\">\n{\"path\":\"math.mjs\"}\n</tool_call>\n","createdAt":1790714602375}}
+{"kind":"message","message":{"id":"3e9d413c-4bec-45dc-94da-920657c177f9","role":"user","content":"<tool_result name=\"read_file\">\nexport function add(a, b) {\n  return a + b;\n}\n\n</tool_result>","createdAt":1790714602376}}
+{"kind":"turn_usage","model":"gpt-oss-20b-32k","inputTokens":1320,"outputTokens":61,"costUSD":0,"at":1790714602940}
+{"kind":"message","message":{"id":"f237e666-7b39-49ee-9561-401699796ba7","role":"assistant","content":"\n<tool_call name=\"read_file\">\n{\"path\":\"main.mjs\"}\n</tool_call>\n","createdAt":1790714602940}}
+{"kind":"message","message":{"id":"03345830-2c00-467d-95ee-597d43e41f01","role":"user","content":"<tool_result name=\"read_file\">\nimport { add } from \"./math.mjs\";\n\nconsole.log(add(2, 3));\n\n</tool_result>","createdAt":1790714602941}}
+{"kind":"turn_usage","model":"gpt-oss-20b-32k","inputTokens":1381,"outputTokens":108,"costUSD":0,"at":1790714603765}
+{"kind":"message","message":{"id":"886e21cf-b48b-4d1b-ac58-861f6773b740","role":"assistant","content":"\n<tool_call name=\"edit_file\">\n{\"path\":\"math.mjs\",\"old_string\":\"export function add(a, b) {\",\"new_string\":\"export function sum(a, b) {\"}\n</tool_call>\n","createdAt":1790714603766}}
+{"kind":"message","message":{"id":"8b04a08e-725a-4095-bbd3-e0593990eac3","role":"user","content":"<tool_result name=\"edit_file\">\nEdited math.mjs (1 occurrence replaced).\n</tool_result>","createdAt":1790714603767}}
+{"kind":"turn_usage","model":"gpt-oss-20b-32k","inputTokens":1456,"outputTokens":66,"costUSD":0,"at":1790714604362}
+{"kind":"message","message":{"id":"ef83412c-03bb-4f9a-b8ce-6da3188bda85","role":"assistant","content":"{\"path\":\"main.mjs\",\"old_string\":\"import { add } from \\\"./math.mjs\\\";\",\"new_string\":\"import { sum } from \\\"./math.mjs\\\";\"}\n","createdAt":1790714604363}}
