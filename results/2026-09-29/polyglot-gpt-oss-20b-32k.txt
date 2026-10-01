@@ -1,6 +1,6 @@
 === Polyglot scenario:live · gpt-oss-20b-32k · run 1 ===
 
-> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> @usepolyglot/monorepo@0.0.0 scenario:live ~/polyglot/polyglot
 > tsx scripts/scenario-matrix.ts
 
 
@@ -51,7 +51,7 @@ taskDone 0/6 · 1 failure transcript(s).
 
 === Polyglot scenario:live · gpt-oss-20b-32k · run 2 ===
 
-> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> @usepolyglot/monorepo@0.0.0 scenario:live ~/polyglot/polyglot
 > tsx scripts/scenario-matrix.ts
 
 
@@ -102,7 +102,7 @@ taskDone 0/6 · 1 failure transcript(s).
 
 === Polyglot scenario:live · gpt-oss-20b-32k · run 3 ===
 
-> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> @usepolyglot/monorepo@0.0.0 scenario:live ~/polyglot/polyglot
 > tsx scripts/scenario-matrix.ts
 
 

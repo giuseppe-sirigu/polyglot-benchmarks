@@ -1,6 +1,6 @@
 {
   "tool": "polyglot-cli-v3",
-  "cli": "/home/gsirigu/Documents/polyglot/polyglot/packages/cli/dist/main.js",
+  "cli": "~/polyglot/polyglot/packages/cli/dist/main.js",
   "toolVersion": "0.13.1",
   "model": "devstral-small-2-24b-32k",
   "trials": 5,

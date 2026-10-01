@@ -1,6 +1,6 @@
 {
   "tool": "polyglot-cli-fixed-r3",
-  "cli": "/home/gsirigu/Documents/polyglot/polyglot/packages/cli/dist/main.js",
+  "cli": "~/polyglot/polyglot/packages/cli/dist/main.js",
   "toolVersion": "0.13.1",
   "model": "gpt-oss-20b-32k",
   "trials": 3,

@@ -5,7 +5,7 @@ alive on open-weight models with unreliable tool-calling.**
 
 The benchmark is a head-to-head: the same six coding tasks, the same local models, run through
 [Polyglot](https://usepolyglot.dev), [pi](https://github.com/earendil-works/pi),
-[goose](https://github.com/block/goose) (with and without its toolshim),
+[goose](https://github.com/aaif-goose/goose) (with and without its toolshim),
 [Hermes Agent](https://github.com/NousResearch/hermes-agent) and [opencode](https://opencode.ai).
 
 ## Headline result (30-run grid, 2026-09-29 to 2026-10-01)
@@ -27,8 +27,8 @@ Polyglot is the only agent at "sometimes" or better on all seven. On the newest 
 difference is the models that write tool calls as text. Within a tier, a run or two is noise.
 
 Grid, file map, Polyglot re-runs on later builds, and how to reproduce the efficiency numbers:
-[`results/GRID.md`](results/GRID.md). Earlier runs before 2026-09-29 used Ollama's default 4,096-token context,
-which silently truncated the larger agents' prompts; they are kept for the record but superseded.
+[`results/GRID.md`](results/GRID.md). Runs before 2026-09-29 predate the context guard and are superseded; see
+[`results/README.md`](results/README.md).
 
 ## Layout
 
@@ -45,7 +45,7 @@ harness/
   pi-home/, hermes-home/ isolated agent configs pointing at local Ollama
 results/<date>/          raw captures; failed-run transcripts in transcripts/
 results/GRID.md          the 30-run grid and its file map
-blog/                    draft write-ups for usepolyglot.dev
+results/README.md        what each dated folder holds, and which are superseded
 ```
 
 ## Reproduce
@@ -55,13 +55,14 @@ blog/                    draft write-ups for usepolyglot.dev
 printf 'FROM qwen2.5-coder:7b\nPARAMETER num_ctx 32768\n' > Modelfile
 ollama create qwen2.5-coder-7b-32k -f Modelfile
 
-# 2. Every agent on one model, 5 trials per task (opencode needs Docker; set DOCKER_CONTEXT if not default)
+# 2. Polyglot: a built checkout next to this repo (../polyglot), or point POLYGLOT_CLI at any build
+git clone https://github.com/giuseppe-sirigu/polyglot ../polyglot && (cd ../polyglot && pnpm install && pnpm build)
+
+# 3. Every agent on one model, 5 trials per task (opencode needs Docker)
 cd harness && npm install
 ./run-all.sh qwen2.5-coder-7b-32k 5
-
-# 3. Polyglot from a local build instead of the published CLI
-POLYGLOT_CLI=~/path/to/polyglot/packages/cli/dist/main.js POLYGLOT_CLI_LABEL=polyglot-cli-local \
-  ./run-all.sh qwen2.5-coder-7b-32k 5
+#   another Polyglot build, under its own results label:
+POLYGLOT_CLI=$(npm root -g)/@usepolyglot/cli/dist/main.js POLYGLOT_CLI_LABEL=polyglot-cli-npm ./run-all.sh qwen2.5-coder-7b-32k 5
 ```
 
 `SKIP=pi,goose,...` leaves agents out; `SKIP=polyglot` drops the older scenario-runner leg, which the grid does not use. Hermes needs `python3 -m venv .venv && .venv/bin/pip install hermes-agent`.
@@ -69,6 +70,14 @@ POLYGLOT_CLI=~/path/to/polyglot/packages/cli/dist/main.js POLYGLOT_CLI_LABEL=pol
 See [`METHODOLOGY.md`](METHODOLOGY.md) for scoring, setup details, and what this
 does and doesn't show.
 
-## Status
+## Write-ups
 
-Private working repo, toward publication on usepolyglot.dev. The 30-run grid is the current result.
+- [Your local coding agent might be doing nothing at all](https://www.usepolyglot.dev/blog/tool-call-reliability)
+- [Is it just a chat template? We checked.](https://www.usepolyglot.dev/blog/chat-template-followup)
+- [We tested the hyped model - and found two bugs in our own code along the way](https://www.usepolyglot.dev/blog/qwen38-27b-and-our-own-bugs)
+
+Found a problem with the harness or the scoring? Open an issue with the result file and the run in question.
+
+## License
+
+Harness code (`harness/`): [Apache-2.0](LICENSE). Results and documentation: [CC BY 4.0](LICENSE-DATA.md).

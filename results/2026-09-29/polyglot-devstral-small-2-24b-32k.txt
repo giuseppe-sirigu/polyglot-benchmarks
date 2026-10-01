@@ -1,6 +1,6 @@
 === Polyglot scenario:live · devstral-small-2-24b-32k · run 1 ===
 
-> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> @usepolyglot/monorepo@0.0.0 scenario:live ~/polyglot/polyglot
 > tsx scripts/scenario-matrix.ts
 
 
@@ -51,7 +51,7 @@ taskDone 4/6 · 0 failure transcript(s).
 
 === Polyglot scenario:live · devstral-small-2-24b-32k · run 2 ===
 
-> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> @usepolyglot/monorepo@0.0.0 scenario:live ~/polyglot/polyglot
 > tsx scripts/scenario-matrix.ts
 
 
@@ -104,7 +104,7 @@ taskDone 3/6 · 1 failure transcript(s).
 
 === Polyglot scenario:live · devstral-small-2-24b-32k · run 3 ===
 
-> @usepolyglot/monorepo@0.0.0 scenario:live /home/gsirigu/Documents/polyglot/polyglot
+> @usepolyglot/monorepo@0.0.0 scenario:live ~/polyglot/polyglot
 > tsx scripts/scenario-matrix.ts
 
 
