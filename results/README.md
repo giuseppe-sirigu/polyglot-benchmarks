@@ -18,6 +18,7 @@ tool-calling measurement. They are kept for the record, not for comparison.
 | `2026-09-29/3-trial/` | The same models at 3 trials per task, before the move to 5 | superseded by the 5-trial runs |
 | `2026-09-30/` | The grid continued: all agents on Qwen3.8-27B, qwen3-coder 30B, qwen2.5-coder 32B; Polyglot v2 re-run | **grid** |
 | `2026-10-01/` | Polyglot v3 re-run on all seven models | re-run, see `GRID.md` |
+| `2026-10-12/` | Polyglot 0.16.0 from npm on all seven models (`polyglot-cli-npm-0.16.0-*`) | **grid** (Polyglot column) |
 
 `polyglot-cli-fixed*` files are intermediate Polyglot builds from the same days. Local paths and the machine's
 username in the captures are replaced with `~/polyglot/` and `user`.
