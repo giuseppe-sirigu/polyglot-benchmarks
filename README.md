@@ -8,23 +8,25 @@ The benchmark is a head-to-head: the same six coding tasks, the same local model
 [goose](https://github.com/aaif-goose/goose) (with and without its toolshim),
 [Hermes Agent](https://github.com/NousResearch/hermes-agent) and [opencode](https://opencode.ai).
 
-## Headline result (30-run grid, 2026-09-29 to 2026-10-01)
+## Headline result (30-run grid, 2026-09-29 to 2026-10-12)
 
 Thirty runs per agent per model, on seven local models through Ollama with a 32k context. Tiers fixed in
 advance: reliable = 26+/30, sometimes = 12-25, fails = under 12.
 
 | Model | Polyglot | pi | goose | goose toolshim | Hermes | opencode |
 |---|---|---|---|---|---|---|
-| Qwen3.8-27B | 27 | 28 | 30 | 27 | 28 | 30 |
-| gpt-oss 20B | 30 | 29 | 18 | 5 | 18 | 15 |
+| Qwen3.8-27B | 30 | 28 | 30 | 27 | 28 | 30 |
+| gpt-oss 20B | 27 | 29 | 18 | 5 | 18 | 15 |
 | Devstral Small 2 24B | 29 | 28 | 24 | 18 | 30 | 23 |
 | qwen3-coder 30B | 30 | 26 | 29 | 25 | 29 | 23 |
-| qwen2.5-coder 32B | 24 | 0 | 0 | 28 | 0 | 0 |
-| qwen2.5-coder 14B | 27 | 0 | 0 | 21 | 0 | 0 |
-| qwen2.5-coder 7B | 12 | 0 | 0 | 4 | 0 | 0 |
+| qwen2.5-coder 32B | 26 | 0 | 0 | 28 | 0 | 0 |
+| qwen2.5-coder 14B | 23 | 0 | 0 | 21 | 0 | 0 |
+| qwen2.5-coder 7B | 9 | 0 | 0 | 4 | 0 | 0 |
 
-Polyglot is the only agent at "sometimes" or better on all seven. On the newest models every agent works; the
-difference is the models that write tool calls as text. Within a tier, a run or two is noise.
+Polyglot works ("sometimes" or better) on six of the seven, more than any other agent, and reliably on five; on
+qwen2.5-coder 7B no agent works. On the newest models every agent works; the difference is the models that write
+tool calls as text. Within a tier, a run or two is noise. The Polyglot column is the 0.16.0 release from npm, run
+once.
 
 Grid, file map, Polyglot re-runs on later builds, and how to reproduce the efficiency numbers:
 [`results/GRID.md`](results/GRID.md). Runs before 2026-09-29 predate the context guard and are superseded; see
